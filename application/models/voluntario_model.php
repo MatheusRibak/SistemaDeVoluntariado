@@ -1,0 +1,20 @@
+<?php
+
+class Voluntario_model extends CI_Model {
+
+    public $id_voluntario;
+    public $nome;
+    public $email;
+    public $telefone;
+    public $senha;
+
+    function __construct() {
+        parent::__construct();
+    }
+
+    public function salvarVoluntario(){
+       //método que vai realizar o insert na tabela de voluntário do sistema  
+       return $this->db->insert('voluntario', $this);
+   }
+
+}
