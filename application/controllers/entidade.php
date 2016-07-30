@@ -20,6 +20,40 @@ class Entidade extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		$this->load->view('cadastro_entidade');
 	}
-}
+
+	public function Salvar(){
+				 $dados = array();
+
+				 $this->db->select('email');
+				 $this->db->where('email', $this->input->post('entidade_email'));
+				 $retorno = $this->db->get('entidade')->num_rows();
+					//verifica se já existe um email igual cadastrado, caso exista vai mostrar a mensagem
+					//caso não o cadastro será realizado
+				  if($retorno > 0 ){
+						 $teste['mensagem'] = 'Não foi possivel cadastrar';
+						$this->load->view('cadastro_entidade', $teste);
+										  } else {
+						//pegando os dados vindos do formulario de cadastro;
+					 $this->Entidade_model->nome = $this->input->post('entidade_nome');
+					 $this->Entidade_model->telefone = $this->input->post('entidade_telefone');
+					 $this->Entidade_model->email = $this->input->post('entidade_email');
+					 $this->Entidade_model->senha = $this->input->post('entidade_senha');
+					 $this->Entidade_model->area_atuacao = $this->input->post('entidade_area_atuacao');
+					 $this->Entidade_model->rua = $this->input->post('entidade_rua');
+					 $this->Entidade_model->bairro = $this->input->post('entidade_bairro');
+					 $this->Entidade_model->numero = $this->input->post('entidade_numero');
+					 $this->Entidade_model->cidade = $this->input->post('entidade_cidade');
+					 $this->Entidade_model->uf = $this->input->post('entidade_uf');
+					 $this->Entidade_model->cep = $this->input->post('entidade_cep');
+					 if($this->Entidade_model->Salvar()){
+							 $dados['msg'] = 'Entidade cadastrado com sucesso!';
+					 }
+					 else{
+							 $dados['msg'] = 'Erro ao cadastrar novo Entidade, tente novamente ou contate o administrador do sistema!';
+					 }
+			 $this->load->view('cadastro_entidade', $dados);
+					}
+ }
+ }

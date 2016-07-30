@@ -3,12 +3,11 @@
 class Entidade_model extends CI_Model {
 
     public $id_entidade;
-    public $area_atuação;
     public $nome;
     public $telefone;
     public $email;
     public $senha;
-    public $codigo;
+    public $area_atuacao;
 	  public $rua;
 	  public $numero;
 	  public $bairro;
@@ -20,8 +19,9 @@ class Entidade_model extends CI_Model {
         parent::__construct();
     }
 
-    public function salvarEntidade(){
-       return $this->db->insert('', $this);
+    public function Salvar(){
+       //método que vai realizar o insert na tabela de entidade do sistema
+       return $this->db->insert('entidade', $this);
    }
 
 }
