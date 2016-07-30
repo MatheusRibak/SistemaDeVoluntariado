@@ -12,8 +12,8 @@ class Voluntario_model extends CI_Model {
         parent::__construct();
     }
 
-    public function salvarVoluntario(){
-       //método que vai realizar o insert na tabela de voluntário do sistema  
+    public function Salvar(){
+       //método que vai realizar o insert na tabela de voluntário do sistema
        return $this->db->insert('voluntario', $this);
    }
 
