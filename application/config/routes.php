@@ -55,3 +55,4 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['salvar_voluntario'] = "Voluntario/Salvar";
 $route['salvar_entidade'] = "Entidade/Salvar";
+$route['cadastro'] = "Entidade/index";

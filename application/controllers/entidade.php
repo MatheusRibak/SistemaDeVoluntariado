@@ -20,7 +20,11 @@ class Entidade extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('cadastro_entidade');
+		$this->load->view('cadastro');
+	}
+
+	public function carregarLogin(){
+		$this->load->view('login_ong');
 	}
 
 	public function Salvar(){
@@ -53,17 +57,18 @@ class Entidade extends CI_Controller {
 					 else{
 							 $dados['msg'] = 'Erro ao cadastrar novo Entidade, tente novamente ou contate o administrador do sistema!';
 					 }
-			 $this->load->view('cadastro_entidade', $dados);
+			 $this->load->view('cadastro', $dados);
 					}
  }
 
  				public function loginEntidade(){
 
 
-
+				//pega os dados vindos da view de login
 				$entidade_email = $this->input->post('entidade_email');
 				$entidade_senha = $this->input->post('entidade_senha');
 
+				//seleciona os dados na tabela de entidade
 				$this->db
 				->select("*")
 				->from("entidade")
@@ -72,6 +77,7 @@ class Entidade extends CI_Controller {
 
 				$dadosEntidade = $this->db->get();
 
+				//se tiver um igual vai fazer o login e passar o id
 				if($dadosEntidade->num_rows() > 0){
 				$entidade = $dadosEntidade->row();
 
@@ -82,9 +88,10 @@ class Entidade extends CI_Controller {
 				echo "login funcionou eeee";
 
 				} else {
+					//se não tiver login e senha certo vai cair aqui
 					$teste2['mensagem_dois'] = 'Login ou senha incorretos';
-			
-				$this->load->view('cadastro_entidade', $teste2);
+
+				$this->load->view('login', $teste2);
 
 				}
 

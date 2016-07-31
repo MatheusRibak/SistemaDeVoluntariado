@@ -60,12 +60,13 @@
 				<ul class="nav navbar-nav navbar-right">
 
 
-					<li><a data-toggle="modal" href="<?=site_url('login')?>" onclick="openLoginModal();">
-							<i class="fa fa-user" aria-hidden="true"></i>	 Login</a></li>
+          <li><a data-toggle="modal" href="<?=site_url('login')?>" onclick="openLoginModal();">
+              <i class="fa fa-user" aria-hidden="true"></i>	 Login</a></li>
 
 
-					<li><a data-toggle="modal" href="<?=base_url('cadastro')?>">
-					<i class="fa fa-plus" aria-hidden="true"></i> Cadastrar</a></li>
+
+              <li><a data-toggle="modal" href="<?=base_url('cadastro')?>">
+              <i class="fa fa-plus" aria-hidden="true"></i> Cadastrar</a></li>
 
 
 
@@ -80,8 +81,9 @@
 		<div class="row content">
 			<div>
 				<div class="col-sm-8 col-sm-offset-2">
-					<h2>Cadastro de novo usuário</h2>
-					<p>Escolha como você deseja se cadastrar:</p>
+					<h2>Formulário de Login</h2>
+					<p>Escolha como você deseja realizar o login</p>
+           <?php echo (isset($mensagem_dois) ? $mensagem_dois: '') ?>
 					<ul class="nav nav-tabs">
 						<li><a data-toggle="tab" href="#entidade">Voluntário</a></li>
 						<li class="active"><a data-toggle="tab" href="#ong">ONG</a></li>
@@ -90,19 +92,9 @@
 					<div class="tab-content">
 						<div id="ong" class="tab-pane fade in active">
 							</br>
-							<form action="<?=base_url('salvar_entidade')?>" method="post">
-								<div class="form-group">
-									<label for="nomeEntidade">Nome da sua organização(ONG):</label>
-									<input type="text"
-										id="nomeEntidade" name="entidade_nome"
-										value="" class="form-control" required />
-								</div>
-								<div class="form-group">
-									<label for="telefoneEntidade">Telefone para contato:</label>
-									<input type="tel"
-										id="telefoneEntidade" name="entidade_telefone"
-										value="" class="form-control" required  />
-								</div>
+							<form action="<?=site_url('entidade/loginEntidade')?>" method="post">
+
+
 								<div class="form-group">
 									<label for="emailEntidade">E-mail:</label>
 									<input type="email"
@@ -116,83 +108,28 @@
 										id="senhaEntidade" name="entidade_senha"
 										value="" class="form-control" required  />
 								</div>
-								<div class="form-group">
-									<label for="areaAtuacao">Area de atuação da organização:</label>
-									<input type="text"
-										id="areaAtuacao" name="entidade_area_atuacao"
-										value=""	class="form-control" required  />
-								</div>
-								<h3>Endereço da organização:</h3>
-								<div class="form-group">
-									<label for="ruaEntidade">Rua:</label>
-									<input type="text"
-										id="ruaEntidade" name="entidade_rua"
-										value="" class="form-control" required  />
-								</div>
-								<div class="form-group">
-									<label for="bairroEntidade">Bairro:</label>
-									<input type="text"
-										id="bairroEntidade" name="entidade_bairro"
-										value="" class="form-control" required  />
-								</div>
-								<div class="form-group">
-									<label for="numeroEntidade">Número:</label>
-									<input type="text"
-										id="numeroEntidade" name="entidade_numero"
-										value="" class="form-control" required  />
-								</div>
-								<div class="form-group">
-									<label for="cidadeEntidade">Cidade:</label>
-									<input type="text"
-										id="cidadeEntidade" name="entidade_cidade"
-										value="" class="form-control" required  />
-								</div>
-								<div class="form-group">
-									<label for="ufEntidade">UF:</label>
-									<input type="text"
-										id="ufEntidade" name="entidade_uf"
-										value="" class="form-control" required  />
-								</div>
-								<div class="form-group">
-									<label for="cepEntidade">Cep:</label>
-									<input type="text"
-										id="cepEntidade" name="entidade_cep"
-										value="" class="form-control" required  />
-								</div>
-								<button type="submit" class="btn btn-primary">CADASTRAR <span class="glyphicon glyphicon-ok"></span></button>
+
+								<button type="submit" class="btn btn-primary">Realizar Login ONG <span class="glyphicon glyphicon-ok"></span></button>
 								<br> <br>
 							</form>
 						</div>
 						<div id="entidade" class="tab-pane fade">
 							</br>
-							<form action="<?=base_url('salvar_voluntario')?>" method="post">
+							<form action="<?=site_url('voluntario/loginVoluntario')?>" method="post">
+
 								<div class="form-group">
-									<label for="nomeVoluntario">Nome completo:</label>
+									<label for="loginVoluntario">Email</label>
 									<input type="text"
-										id="nomeVoluntario" name="voluntario_nome"
-										value="" class="form-control" required  />
+										id="loginVoluntario" name="voluntario_email"
+										value="" class="form-control" required />
 								</div>
-								<div class="form-group">
-									<label for="celularVoluntario">Celular para contato:</label>
-									<input type="tel"
-										id="celularVoluntario" name="voluntario_telefone"
-										value="" class="form-control" required  />
-								</div>
-
-								<div class="form-group">
-									<label for="emailVoluntario">Email:</label>
-									<input type="email"
-										id="emailVoluntario" name="voluntario_email"
-										value="" class="form-control" required  />
-								</div>
-
 								<div class="form-group">
 									<label for="senhaVoluntario">Senha:</label>
 									<input type="password"
 										id="senhaVoluntario" name="voluntario_senha"
 										value="" class="form-control" required  />
 								</div>
-								<button type="submit" class="btn btn-primary">CADASTRAR <span class="glyphicon glyphicon-ok"></span></button>
+								<button type="submit" class="btn btn-primary">Realizar Login Voluntário <span class="glyphicon glyphicon-ok"></span></button>
 								<br> <br>
 							</form>
 						</div>

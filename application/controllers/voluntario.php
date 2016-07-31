@@ -67,7 +67,10 @@ class Voluntario extends CI_Controller {
 						 echo "login funcionou eeee";
 
 						 } else {
-						 $this->load->view('login_tpl', ['login_falhou' => TRUE]);
+							 //se não tiver login e senha certo vai cair aqui
+		 					$teste2['mensagem_dois'] = 'Login ou senha incorretos';
+
+		 				$this->load->view('login', $teste2);
 						 }
 
 						 }
