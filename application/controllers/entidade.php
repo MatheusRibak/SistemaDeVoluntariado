@@ -39,7 +39,7 @@ class Entidade extends CI_Controller {
 					 $this->Entidade_model->nome = $this->input->post('entidade_nome');
 					 $this->Entidade_model->telefone = $this->input->post('entidade_telefone');
 					 $this->Entidade_model->email = $this->input->post('entidade_email');
-					 $this->Entidade_model->senha = $this->input->post('entidade_senha');
+					 $this->Entidade_model->senha = md5($this->input->post('entidade_senha'));
 					 $this->Entidade_model->area_atuacao = $this->input->post('entidade_area_atuacao');
 					 $this->Entidade_model->rua = $this->input->post('entidade_rua');
 					 $this->Entidade_model->bairro = $this->input->post('entidade_bairro');
@@ -56,4 +56,40 @@ class Entidade extends CI_Controller {
 			 $this->load->view('cadastro_entidade', $dados);
 					}
  }
+
+ 				public function loginEntidade(){
+
+
+
+				$entidade_email = $this->input->post('entidade_email');
+				$entidade_senha = $this->input->post('entidade_senha');
+
+				$this->db
+				->select("*")
+				->from("entidade")
+				->where("email", $entidade_email)
+				->where("senha", md5($entidade_senha));
+
+				$dadosEntidade = $this->db->get();
+
+				if($dadosEntidade->num_rows() > 0){
+				$entidade = $dadosEntidade->row();
+
+				$this->session->set_userdata('logado', TRUE);
+				$this->session->set_userdata('id_entidade', $entidade->id_entidade);
+
+				echo $entidade->id_entidade;
+				echo "login funcionou eeee";
+
+				} else {
+					$teste2['mensagem_dois'] = 'Login ou senha incorretos';
+			
+				$this->load->view('cadastro_entidade', $teste2);
+
+				}
+
+				}
+
+
+
  }

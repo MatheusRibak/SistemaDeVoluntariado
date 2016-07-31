@@ -2,9 +2,9 @@
 
 
 
-<link href="assets/css/style.css" rel="stylesheet">
-<link href="assets/css/signin.css" rel="stylesheet">
-<link href="assets/css/cadastro.css" rel="stylesheet">
+<link href="<?=base_url('assets/css/style.css')?>" rel="stylesheet">
+<link href="<?=base_url('assets/css/signin.css')?>" rel="stylesheet">
+<link href="<?=base_url('assets/css/cadastro.css')?>" rel="stylesheet">
 <title>Cadastro de novo usuário - EuVoluntário</title>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -17,18 +17,19 @@
 	<link rel="icon" type="image/png" href="img/favicon.ico">
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="assets/css/style.css" media="screen" title="no title" charset="utf-8">
-	<link href="assets/css/bootstrap.min.css" rel="stylesheet">
-	<link href="assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-	<link href="assets/css/carousel.css" rel="stylesheet">
-	<link href="assets/css/bootstrap.css" rel="stylesheet" />
-	<link href="assets/css/login-register.css" rel="stylesheet" />
+	<link href="<?=base_url('assets/css/bootstrap.min.css')?>" rel="stylesheet">
+	<link href="<?=base_url('assets/css/ie10-viewport-bug-workaround.css')?>" rel="stylesheet">
+	<link href="<?=base_url('assets/css/carousel.css')?>" rel="stylesheet">
+	<link href="<?=base_url('assets/css/bootstrap.css')?>" rel="stylesheet" />
+	<link href="<?=base_url('assets/css/login-register.css')?>" rel="stylesheet" />
 
 	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
 
-	<script src="assets/js/ie-emulation-modes-warning.js"></script>
-	<script src="jquery/jquery-1.10.2.js" type="text/javascript"></script>
-	<script src="assets/js/bootstrap.js" type="text/javascript"></script>
-	<script src="assets/js/login-register.js" type="text/javascript"></script>
+	<script src="<?=base_url('assets/js/ie-emulation-modes-warning.js')?>"></script>
+	<script src="<?=base_url('jquery/jquery-1.10.2.js')?>" type="text/javascript"></script>
+	<script src="<?=base_url('assets/js/bootstrap.js')?>" type="text/javascript"></script>
+	<script src="<?=base_url('assets/js/login-register.js')?>" type="text/javascript"></script>
+	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -49,14 +50,14 @@
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
 				<li><a href="/your.groupid/">
-					<span class="glyphicon glyphicon-home"></span> Home</a></li>
+					<i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
 
 			</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal();">
-						<span class="glyphicon glyphicon-user"></span> Login</a></li>
+						<i class="fa fa-user" aria-hidden="true"></i> Login</a></li>
 					<li><a data-toggle="modal" href="/your.groupid/cadastro">
-						<span class="glyphicon glyphicon-plus"></span> Cadastrar</a></li>
+						<i class="fa fa-plus" aria-hidden="true"></i> Cadastrar</a></li>
 
 				</ul>
 		</div>
@@ -69,6 +70,10 @@
 			<div>
 				<div class="col-sm-8 col-sm-offset-2">
             <?php echo (isset($mensagem) ? $mensagem : '') ?>
+
+							<?php echo (isset($mensagem_dois) ? $mensagem_dois : '') ?>
+
+
 					<h2>Cadastro de nova organização</h2>
 
 
@@ -199,9 +204,9 @@
 								<div class="content">
 									<div class="error"></div>
 									<div class="form loginBox">
-										<form action="/your.groupid/autenticarUsuario" method="post" accept-charset="UTF-8">
-											<input id="email" class="form-control" type="text" placeholder="Usuário" name="usuario.login" value="" required>
-												<input id="password" class="form-control" type="password" placeholder="Senha" name="usuario.senha" value="" required>
+										<form  method="post" accept-charset="UTF-8" action="<?=site_url('entidade/loginEntidade')?>">
+											<input id="email" class="form-control" type="text" placeholder="Usuário" name="entidade_email" value="" required>
+												<input id="password" class="form-control" type="password" placeholder="Senha" name="entidade_senha" value="" required>
 												<input class="btn btn-default btn-login" type="submit" value="Entrar" onclick="">
 
 										</form>

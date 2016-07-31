@@ -74,7 +74,7 @@
 					</ul>
 
 					<div class="tab-content">
-						
+
 							</br>
 							<form method="post" action="<?=base_url('salvar_voluntario')?>">
 								<div class="form-group">
@@ -157,9 +157,9 @@
 								<div class="content">
 									<div class="error"></div>
 									<div class="form loginBox">
-										<form action="/your.groupid/autenticarUsuario" method="post" accept-charset="UTF-8">
-											<input id="email" class="form-control" type="text" placeholder="Usuário" name="usuario.login" value="" required>
-												<input id="password" class="form-control" type="password" placeholder="Senha" name="usuario.senha" value="" required>
+										<form  method="post" accept-charset="UTF-8" action="<?=site_url('voluntario/loginVoluntario')?>">
+											<input id="email" class="form-control" type="text" placeholder="Usuário" name="voluntario_email" value="" required>
+												<input id="password" class="form-control" type="password" placeholder="Senha" name="voluntario_senha" value="" required>
 												<input class="btn btn-default btn-login" type="submit" value="Entrar" onclick="">
 
 										</form>
