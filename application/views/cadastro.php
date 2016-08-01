@@ -52,8 +52,9 @@
 			</div>
 			<div class="collapse navbar-collapse" id="navbar-collapse-1">
 				<ul class="nav navbar-nav">
-				<li><a href="/your.groupid/;jsessionid=B3492B48A59F9AF78373ADB67BDBC592">
-				<i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+					<li><a data-toggle="modal" href="<?=site_url('home')?>" >
+              <i class="fa fa-home" aria-hidden="true"></i>	 Home</a></li>
+
 
 			</ul>
 

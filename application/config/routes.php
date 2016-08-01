@@ -49,10 +49,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'entidade';
+$route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+//aqui estão as rotas que eu estou definindo. Cada uma se refere ao controller/método que nele está. 
 $route['salvar_voluntario'] = "Voluntario/Salvar";
 $route['salvar_entidade'] = "Entidade/Salvar";
 $route['cadastro'] = "Entidade/index";
+$route['home'] = "Home/index";
