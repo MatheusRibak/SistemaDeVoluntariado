@@ -53,7 +53,7 @@ $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-//aqui estão as rotas que eu estou definindo. Cada uma se refere ao controller/método que nele está. 
+//aqui estão as rotas que eu estou definindo. Cada uma se refere ao controller/método que nele está.
 $route['salvar_voluntario'] = "Voluntario/Salvar";
 $route['salvar_entidade'] = "Entidade/Salvar";
 $route['cadastro'] = "Entidade/index";

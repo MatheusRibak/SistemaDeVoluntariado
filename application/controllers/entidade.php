@@ -27,6 +27,10 @@ class Entidade extends CI_Controller {
 		$this->load->view('login_ong');
 	}
 
+	public function carregarCadastroVaga(){
+		$this->load->view('cadastro_vaga');
+	}
+
 	public function Salvar(){
 				 $dados = array();
 
@@ -86,6 +90,9 @@ class Entidade extends CI_Controller {
 
 				echo $entidade->id_entidade;
 				echo "login funcionou eeee";
+
+					$this->load->view('home_entidade');
+
 
 				} else {
 					//se não tiver login e senha certo vai cair aqui
