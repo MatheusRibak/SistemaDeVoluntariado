@@ -110,12 +110,12 @@
 							<h3 class="page-header">Cadastro de Nova Vaga</h3>
 							<h4>Complete os campos abaixo:</h4>
 							<form class="form-horizontal"
-								action="/your.groupid/salvarVaga" method="post">
+								action="<?=site_url('entidade/salvarVaga')?>" method="post">
 								<div class="form-group">
 									<label class="col-sm-2">Nome <br> da Vaga
 									</label>
 									<div class="col-sm-9">
-										<input type="text" class="form-control" name="vaga_nome_vaga"
+										<input type="text" class="form-control" name="vaga_nome"
 											value="" placeholder="Nome da Vaga" required/>
 									</div>
 								</div>
@@ -210,7 +210,7 @@
 									<label class="col-sm-2"> Data de Validade</label>
 									<div class="col-sm-9">
 
-									<input type="text" name="vaga_dataValidade" class="form-control" value="">
+									<input type="text" name="vaga_data_validade" class="form-control" value="">
 
 
 									</div>

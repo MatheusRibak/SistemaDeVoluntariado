@@ -18,8 +18,7 @@ class Entidade extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index()
-	{
+	public function index(){
 		$this->load->view('cadastro');
 	}
 
@@ -65,7 +64,7 @@ class Entidade extends CI_Controller {
 					}
  }
 
- 				public function loginEntidade(){
+	public function loginEntidade(){
 
 
 				//pega os dados vindos da view de login
@@ -89,6 +88,7 @@ class Entidade extends CI_Controller {
 				$this->session->set_userdata('id_entidade', $entidade->id_entidade);
 
 				echo $entidade->id_entidade;
+				 $gambiarra = $entidade->id_entidade;
 				echo "login funcionou eeee";
 
 					$this->load->view('home_entidade');
@@ -103,6 +103,32 @@ class Entidade extends CI_Controller {
 				}
 
 				}
+
+
+				public function salvarVaga(){
+							 $dados_vaga = array();
+
+							 	//método para salvar vaga, apenas uma base com certeza vai ser melhorado depois
+
+								 $this->Vaga_model->nome = $this->input->post('vaga_nome');
+								 $this->Vaga_model->quantidade_pessoa = $this->input->post('vaga_quantidade_pessoa');
+								 $this->Vaga_model->descricao = $this->input->post('vaga_descricao');
+								 $this->Vaga_model->quantidade_vaga = $this->input->post('vaga_quantidade');
+								 $this->Vaga_model->importancia = $this->input->post('vaga_importancia');
+								 $this->Vaga_model->presencial = $this->input->post('vaga_presencial');
+								 $this->Vaga_model->estado = $this->input->post('vaga_estado');
+								 $this->Vaga_model->cidade = $this->input->post('vaga_cidade');
+								 $this->Vaga_model->id_entidade = $session_id = $this->session->userdata('id_entidade');
+								 $this->Vaga_model->data_validade = $this->input->post('vaga_data_validade');
+								 if($this->Vaga_model->Salvar()){
+										 $mensagem_cadastro_vaga['msg_vaga'] = 'Vaga cadastrada com sucesso!';
+								 }
+								 else{
+										 $mensagem_cadastro_vaga['msg_vaga'] = 'Erro ao cadastrar nova Vaga, tente novamente ou contate o administrador do sistema!';
+								 }
+						 $this->load->view('cadastro_vaga', $mensagem_cadastro_vaga);
+								}
+
 
 
 
