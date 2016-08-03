@@ -42,7 +42,7 @@
                     </a>
                 </li>
                 <li>
-                  <a href="<?=base_url('entidade/carregarPerfil')?>">
+                  <a href="<?=base_url('entidade/Editar')?>">
                         <i class="pe-7s-user"></i>
                         <p>Meu Perfil</p>
                     </a>

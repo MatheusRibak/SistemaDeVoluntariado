@@ -95,76 +95,87 @@
 									<h4 class="title">Editar perfil</h4>
 								</div>
 								<div class="content">
-									<form action="/your.groupid/editarEntidade" method="post">
+									<form action="<?=site_url('entidade/atualizar')?>" method="post">
 										<div class="row">
-											<div class="col-md-5">
+											<div class="col-md-6">
 												<div class="form-group">
 													<label>Entidade</label> <input type="text"
-														class="form-control" name="nomeEntidade"
+														class="form-control" name="nome"
 														placeholder="Entidade"
-														value="Matheus Ribak" disabled /> <input
-														type="hidden" name="entidade.nomeEntidade"
-														value="Matheus Ribak" />
+														value=""  />
 												</div>
 											</div>
-											<div class="col-md-3">
-												<div class="form-group">
-													<label>Usuário</label> <input type="text"
-														class="form-control" name="usuario.login"
-														placeholder="Usuário" value="1" disabled>
-													<input type="hidden" name="usuario.login"
-														value="1" />
-												</div>
-											</div>
-											<div class="col-md-4">
+											<div class="col-md-6">
 												<div class="form-group">
 													<label for="exampleInputEmail1">Email</label> <input
-														type="email" class="form-control" name="entidade.email"
-														placeholder="Email" value="matheusribak@hotmail.com" />
+														type="email" class="form-control" name=""
+														placeholder="Email" value="" disabled  />
+												</div>
+												<input type="hidden" name="email" value="teste">
+											</div>
+
+
+
+										</div>
+
+										<div class="row">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label>Senha</label> <input type="password" class="form-control"
+														name="senha" placeholder="senha"
+														value="" required/>
 												</div>
 											</div>
+											<div class="form-group col-md-6">
+												<label>telefone</label> <input type="text"
+													class="form-control" name="telefone"
+													placeholder="Telefone"
+													value="" required>
+											</div>
+
 										</div>
+
 										<div class="row">
 											<div class="col-md-6">
 												<div class="form-group">
 													<label>Rua</label> <input type="text" class="form-control"
-														name="endereco.rua" placeholder="Rua"
-														value="Rua Parana">
+														name="rua" placeholder="Rua"
+														value="" required>
 												</div>
 											</div>
 											<div class="form-group col-md-4">
 												<label>Bairro</label> <input type="text"
-													class="form-control" name="endereco.bairro"
+													class="form-control" name="bairro"
 													placeholder="Bairro"
-													value="1">
+													value="" required>
 											</div>
 											<div class="form-group col-md-2">
 												<label>Nº</label> <input type="text" class="form-control"
-													name="endereco.numero" placeholder="Nº"
-													value="123">
+													name="numero" placeholder="Nº"
+													value="" required>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col-md-4">
 												<div class="form-group">
 													<label>Cidade</label> <input type="text"
-														class="form-control" name="endereco.cidade"
+														class="form-control" name="cidade"
 														placeholder="Cidade"
-														value="Ponte Serrada">
+														value="" required>
 												</div>
 											</div>
 											<div class="col-md-4">
 												<div class="form-group">
 													<label>UF</label> <input type="text" class="form-control"
-														name="endereco.uf" placeholder="Unidade Federativa"
-														value="Santa Catarina">
+														name="uf" placeholder="Unidade Federativa"
+														value="" required>
 												</div>
 											</div>
 											<div class="col-md-4">
 												<div class="form-group">
 													<label>CEP</label> <input type="text" class="form-control"
-														name="endereco.cep" placeholder="CEP"
-														value="89683-00">
+														name="cep" placeholder="CEP"
+														value="" required>
 												</div>
 											</div>
 										</div>
@@ -172,24 +183,14 @@
 											<div class="col-sm-12">
 												<div class="form-group">
 													<label>Area de atuação</label> <input type="text"
-														name="entidade.areaAtuacao"
-														value="1"
+														name="area_atuacao"
+														value=""
 														class="form-control"
-														placeholder="Área de atuação">
+														placeholder="Área de atuação" required>
 												</div>
 											</div>
 										</div>
-										<div class="row">
-											<div class="col-md-12">
-												<div class="form-group">
-													<label>Sobre</label>
-													<textarea rows="5" class="form-control"
-														placeholder="Descricação da entidade"
-														name="entidade.descricao"
-														value=""></textarea>
-												</div>
-											</div>
-										</div>
+
 										<button type="submit" class="btn btn-primary pull-right">SALVAR
 											ALTERAÇÕES</button>
 										<div class="clearfix"></div>

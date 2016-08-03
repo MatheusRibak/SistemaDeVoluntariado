@@ -30,9 +30,42 @@ class Entidade extends CI_Controller {
 		$this->load->view('cadastro_vaga');
 	}
 
-	public function carregarPerfil(){
-		$this->load->view('perfil_entidade');
-	}
+	function Editar()  {
+
+		$id_entidade = $this->session->userdata('id_entidade');
+    $this->load->model('Entidade_model');
+    $data['dados_entidade'] = $this->Entidade_model->editar($id_entidade);
+
+    $this->load->view('perfil_entidade', $data);
+}
+
+function Atualizar() {
+
+
+			$data = array();
+			$data['senha'] = md5($this->input->post('senha'));
+			$data['nome'] =  $this->input->post('nome');
+			$data['telefone'] =  $this->input->post('telefone');
+			$data['email'] =  $this->input->post('email');
+			$data['area_atuacao'] =  $this->input->post('area_atuacao');
+			$data['rua'] =  $this->input->post('rua');
+			$data['bairro'] =  $this->input->post('bairro');
+			$data['numero'] = $this->input->post('numero');
+			$data['cidade'] =  $this->input->post('cidade');
+			$data['uf'] =  $this->input->post('uf');
+			$data['cep'] =  $this->input->post('cep');
+
+
+			$this->Entidade_model->alterar($data);
+			$this->load->view('perfil_entidade', $data);
+
+}
+
+
+
+
+
+
 
 	public function carregarHomeEntidade(){
 		$this->load->view('home_entidade');
@@ -107,8 +140,9 @@ class Entidade extends CI_Controller {
 				echo $entidade->id_entidade;
 				 $gambiarra = $entidade->id_entidade;
 				echo "login funcionou eeee";
+			$id_entidade =	$this->session->userdata('id_entidade');
 
-					$this->load->view('home_entidade');
+					$this->load->view('home_entidade', $id_entidade);
 
 
 				} else {
@@ -145,6 +179,10 @@ class Entidade extends CI_Controller {
 								 }
 						 $this->load->view('cadastro_vaga', $mensagem_cadastro_vaga);
 								}
+
+
+
+
 
 
 
