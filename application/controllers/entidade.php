@@ -30,6 +30,23 @@ class Entidade extends CI_Controller {
 		$this->load->view('cadastro_vaga');
 	}
 
+	public function carregarPerfil(){
+		$this->load->view('perfil_entidade');
+	}
+
+	public function carregarHomeEntidade(){
+		$this->load->view('home_entidade');
+	}
+
+	public function carregarVagasEntidade(){
+		$this->load->view('minhas_vagas');
+	}
+
+	public function deslogarEntidade(){
+		$this->session->sess_destroy();
+		$this->load->view('home');
+	}
+
 	public function Salvar(){
 				 $dados = array();
 

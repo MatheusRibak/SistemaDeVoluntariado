@@ -58,3 +58,4 @@ $route['salvar_voluntario'] = "Voluntario/Salvar";
 $route['salvar_entidade'] = "Entidade/Salvar";
 $route['cadastro'] = "Entidade/index";
 $route['home'] = "Home/index";
+$route['home_entidade'] = "Entidade/carregarHomeEntidade";

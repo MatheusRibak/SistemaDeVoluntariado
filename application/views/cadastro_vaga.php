@@ -57,25 +57,25 @@
             </div>
             <ul class="nav">
  				<li>
-                    <a href="/your.groupid/homeEntidade">
+                    <a href="<?=base_url('home_entidade')?>">
                         <i class="pe-7s-graph"></i>
                         <p>Principal</p>
                     </a>
                 </li>
                 <li>
-                    <a href="/your.groupid/perfilEntidade">
+                    <a href="<?=base_url('entidade/carregarPerfil')?>">
                         <i class="pe-7s-user"></i>
                         <p>Meu Perfil</p>
                     </a>
                 </li>
                 <li>
-                    <a href="/your.groupid/atuacaoEntidade">
+                    <a href="<?=base_url('entidade/carregarVagasEntidade')?>">
                         <i class="pe-7s-note2"></i>
                         <p>Minhas vagas</p>
                     </a>
                 </li>
 				<li>
-					<a href="/your.groupid/cadastrarVaga">
+					<a href="<?=base_url('entidade/carregarCadastroVaga')?>">
 					<i class="pe-7s-portfolio"></i>
 					<p>Cadastrar Nova Vaga</p>
 					</a>
