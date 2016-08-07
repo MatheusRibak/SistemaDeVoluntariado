@@ -36,7 +36,4 @@ class Entidade_model extends CI_Model {
     return $this->db->update('entidade');
 }
 
-
-
-
 }

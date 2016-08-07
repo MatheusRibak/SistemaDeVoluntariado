@@ -32,12 +32,12 @@ class Entidade extends CI_Controller {
 
 	function Editar()  {
 
-		$id_entidade = $this->session->userdata('id_entidade');
-    $this->load->model('Entidade_model');
-    $data['dados_entidade'] = $this->Entidade_model->editar($id_entidade);
 
-    $this->load->view('perfil_entidade', $data);
+
+    $this->load->view('perfil_entidade');
 }
+
+
 
 function Atualizar() {
 
@@ -114,6 +114,7 @@ function Atualizar() {
 					}
  }
 
+
 	public function loginEntidade(){
 
 
@@ -136,6 +137,7 @@ function Atualizar() {
 
 				$this->session->set_userdata('logado', TRUE);
 				$this->session->set_userdata('id_entidade', $entidade->id_entidade);
+
 
 				echo $entidade->id_entidade;
 				 $gambiarra = $entidade->id_entidade;

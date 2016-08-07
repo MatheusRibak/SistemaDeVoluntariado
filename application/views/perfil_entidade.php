@@ -1,6 +1,5 @@
 
 
-
 <title>Perfil - EuVoluntário</title>
 </head>
 
@@ -99,10 +98,12 @@
 										<div class="row">
 											<div class="col-md-6">
 												<div class="form-group">
-													<label>Entidade</label> <input type="text"
-														class="form-control" name="nome"
-														placeholder="Entidade"
-														value=""  />
+													<label>Entidade</label>
+
+
+			<input type="text" class="form-control" name="nome" placeholder="Nome" value="{$valor->nome}" />
+
+
 												</div>
 											</div>
 											<div class="col-md-6">
