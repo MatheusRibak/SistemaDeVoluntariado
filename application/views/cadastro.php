@@ -82,6 +82,17 @@
 				<div class="col-sm-8 col-sm-offset-2">
 					<h2>Cadastro de novo usuário</h2>
 					<p>Escolha como você deseja se cadastrar:</p>
+					  <?php echo validation_errors(); ?>
+					<?php if ($this->input->get('aviso') == 1) { ?>
+                                <div class="alert alert-success">
+                                     Cadastrado realizado com sucesso! Por favor faça login para usar o sistema!
+                                </div>
+                            <?php } ?>
+														<?php if ($this->input->get('aviso') == 2) { ?>
+									                                <div class="alert alert-danger">
+									                                  E-mail já cadastrado! Tente inserir outro e-mail, ou se lembrar se já não se cadastrou no sistema!
+									                                </div>
+									                            <?php } ?>
 					<ul class="nav nav-tabs">
 						<li><a data-toggle="tab" href="#entidade">Voluntário</a></li>
 						<li class="active"><a data-toggle="tab" href="#ong">ONG</a></li>

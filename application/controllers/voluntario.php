@@ -22,22 +22,31 @@ class Voluntario extends CI_Controller {
 					//verifica se já existe um email igual cadastrado, caso exista vai mostrar a mensagem
 					//caso não o cadastro será realizado
 					if($retorno > 0 ){
-						 $teste['mensagem'] = 'Não foi possivel cadastrar';
-						$this->load->view('cadastro_voluntario', $teste);
+					   redirect('Voluntario/index/?aviso=2');
 											} else {
-						//pegando os dados vindos do formulario de cadastro;
 
-           $this->Voluntario_model->nome = $this->input->post('voluntario_nome');
-           $this->Voluntario_model->telefone = $this->input->post('voluntario_telefone');
-           $this->Voluntario_model->email = $this->input->post('voluntario_email');
-           $this->Voluntario_model->senha = md5 ($this->input->post('voluntario_senha'));
-           if($this->Voluntario_model->Salvar()){
-               $dados['msg'] = 'Voluntario cadastrado com sucesso!';
-           }
-           else{
-               $dados['msg'] = 'Erro ao cadastrar novo Voluntario, tente novamente ou contate o administrador do sistema!';
-           }
-       $this->load->view('cadastro', $dados);
+												$this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
+												$this->form_validation->set_rules('voluntario_nome', 'Nome', 'required|max_length[120]');
+												$this->form_validation->set_rules('voluntario_telefone', 'Telefone', 'required|max_length[120]');
+												$this->form_validation->set_rules('voluntario_email', 'E-mail', 'required|max_length[120]');
+												$this->form_validation->set_rules('voluntario_senha', 'Senha', 'required|max_length[120]');
+
+												if ($this->form_validation->run() == FALSE) {
+													$this->index();
+													return;
+												}
+												else {
+													$this->Voluntario_model->nome = $this->input->post('voluntario_nome');
+							            $this->Voluntario_model->telefone = $this->input->post('voluntario_telefone');
+							            $this->Voluntario_model->email = $this->input->post('voluntario_email');
+							            $this->Voluntario_model->senha = md5 ($this->input->post('voluntario_senha'));
+
+							 					 $this->Voluntario_model->Salvar();
+
+
+							        redirect('Voluntario/index/?aviso=1');
+												}
+
           }
  }
 
