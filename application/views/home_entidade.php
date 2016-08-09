@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>jjj</title>
+    <title>Home - Entidade</title>
     <link rel="stylesheet" href="<?=base_url('assets/css/bootstrap.css')?>"  >
     <link rel="stylesheet" href="<?=base_url('assets/css/bootstrap.min.css')?>"  >
     <link rel="stylesheet" href="<?=base_url('assets/css/main.css')?>"  >
@@ -76,13 +76,14 @@
                                           <ul class="dropdown-menu">
                                               <li>
                                                   <div class="navbar-content">
-                                                      <span>JS Krishna</span>
+                                                      <span>    <?php echo $dadosEntidade->nome ?></span>
                                                       <p class="text-muted small">
-                                                          me@jskrishna.com
+                                                          <?php echo $dadosEntidade->email ?>
                                                       </p>
                                                       <div class="divider">
                                                       </div>
                                                       <a href="#" class="view btn-sm active">View Profile</a>
+                                                    
                                                   </div>
                                               </li>
                                           </ul>

@@ -84,4 +84,3 @@ class Voluntario extends CI_Controller {
 
 						 }
  }
-//}

@@ -83,7 +83,16 @@
 				<div class="col-sm-8 col-sm-offset-2">
 					<h2>Formulário de Login</h2>
 					<p>Escolha como você deseja realizar o login</p>
-           <?php echo (isset($mensagem_dois) ? $mensagem_dois: '') ?>
+					<?php if ($this->input->get('aviso') == 1) { ?>
+		                                 <div class="alert alert-danger">
+		            Login ou senha incorretos! Tente novamente!!!
+		                                 </div>
+		                             <?php } ?>
+																 <?php if ($this->input->get('aviso') == 2) { ?>
+											 		                                 <div class="alert alert-danger">
+											 		          Você não está logado ou não possui acesso a url que tentou acessar!
+											 		                                 </div>
+											 		                             <?php } ?>
 					<ul class="nav nav-tabs">
 						<li><a data-toggle="tab" href="#entidade">Voluntário</a></li>
 						<li class="active"><a data-toggle="tab" href="#ong">ONG</a></li>
