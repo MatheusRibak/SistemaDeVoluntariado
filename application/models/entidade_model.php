@@ -31,4 +31,10 @@ class Entidade_model extends CI_Model {
    }
 
 
+   function alterar($data) {
+      	$id_entidade = $this->session->userdata('id_entidade');
+     $this->db->where('id_entidade', $id_entidade);
+     $this->db->set($data);
+     return $this->db->update('entidade');
+ }
 }

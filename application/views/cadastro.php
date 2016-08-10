@@ -171,10 +171,7 @@
 										value="" class="form-control" required  />
 								</div>
 
-								 <div class="form-group">
-									 <label for="cepEntidade">Foto</label>
-									 <input type="file" name="foto">
-								 </div>
+
 								<button type="submit" class="btn btn-primary">CADASTRAR <span class="glyphicon glyphicon-ok"></span></button>
 								<br> <br>
 							</form>

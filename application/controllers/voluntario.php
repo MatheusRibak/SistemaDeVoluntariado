@@ -28,7 +28,7 @@ class Voluntario extends CI_Controller {
 												$this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
 												$this->form_validation->set_rules('voluntario_nome', 'Nome', 'required|max_length[120]');
 												$this->form_validation->set_rules('voluntario_telefone', 'Telefone', 'required|max_length[120]');
-												$this->form_validation->set_rules('voluntario_email', 'E-mail', 'required|max_length[120]');
+												$this->form_validation->set_rules('voluntario_email', 'E-mail', 'required|max_length[120]|valid_email');
 												$this->form_validation->set_rules('voluntario_senha', 'Senha', 'required|max_length[120]');
 
 												if ($this->form_validation->run() == FALSE) {
