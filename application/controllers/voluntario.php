@@ -51,36 +51,46 @@ class Voluntario extends CI_Controller {
  }
 
 
-						 public function loginVoluntario(){
+ public function loginvoluntario(){
+
+				//pega os dados vindos da view de login
+				$voluntario_email = $this->input->post('voluntario_email');
+				$voluntario_senha = $this->input->post('voluntario_senha');
+
+				 //fazendo a validação do formulario de login
+				 $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
+				 $this->form_validation->set_rules('voluntario_email', 'email', 'required|max_length[120]');
+				 $this->form_validation->set_rules('voluntario_senha', 'Senha', 'required|max_length[120]');
+
+				 if ($this->form_validation->run() == FALSE) {
+						 $this->carregarLogin();
+						 return;
+				 }
+
+				//seleciona os dados na tabela de voluntario
+				$this->db
+				->select("*")
+				->from("voluntario")
+				->where("email", $voluntario_email)
+				->where("senha", md5($voluntario_senha));
+
+				$dadosVoluntario = $this->db->get();
+
+				//se tiver um igual vai fazer o login e passar o id
+				if($dadosVoluntario->num_rows() > 0){
+				$voluntario = $dadosVoluntario->row();
+
+				$this->session->set_userdata('logado', TRUE);
+				$this->session->set_userdata('id_voluntario', $voluntario->id_voluntario);
+
+					 redirect('/Painel_voluntario');
+
+				} else {
+					//se não tiver login e senha certo vai cair aqui
+					 redirect('/Login/?aviso=1');
 
 
+				}
 
-						 $voluntario_email = $this->input->post('voluntario_email');
-						 $voluntario_senha = $this->input->post('voluntario_senha');
-
-						 $this->db
-						 ->select("*")
-						 ->from("voluntario")
-						 ->where("email", $voluntario_email)
-						 ->where("senha", md5($voluntario_senha));
-
-						 $dadosVoluntario = $this->db->get();
-
-						 if($dadosVoluntario->num_rows() > 0){
-						 $voluntario = $dadosVoluntario->row();
-
-						 $this->session->set_userdata('logado', TRUE);
-						 $this->session->set_userdata('id_voluntario', $voluntario->id_voluntario);
-
-						 echo $voluntario->id_voluntario;
-						 echo "login funcionou eeee";
-
-						 } else {
-							 //se não tiver login e senha certo vai cair aqui
-		 					$teste2['mensagem_dois'] = 'Login ou senha incorretos';
-
-		 				$this->load->view('login', $teste2);
-						 }
-
-						 }
+				}
  }

@@ -17,4 +17,10 @@ class Voluntario_model extends CI_Model {
        return $this->db->insert('voluntario', $this);
    }
 
+   function getVoluntario($id_voluntario) {
+       $id_voluntario = (int) $id_voluntario;
+       $this->db->where('id_voluntario', $id_voluntario);
+       return $this->db->get('voluntario');
+   }
+
 }
