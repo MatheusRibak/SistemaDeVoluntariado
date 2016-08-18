@@ -184,6 +184,8 @@ li,ul{
     background: #f6f7fa;
 }
 
+
+
 #navigation {
     background: #0e1a35;
 }
@@ -270,6 +272,7 @@ li,ul{
 }
 .navi i {
     font-size: 20px;
+
 }
 .label.label-primary {
     border-radius: 50%;
@@ -350,7 +353,9 @@ header {
 
 .logo {
     text-align: center;
+    color: blue;
 }
+
 
 
 
@@ -363,11 +368,15 @@ header {
     font-weight: 500;
     padding: 28px 20px;
     text-decoration: none;
+
 }
+
+
 
 .navi i {
     margin-right: 15px;
     color: #5584ff;
+
 }
 
 .navi .active a {
@@ -613,6 +622,7 @@ header {
         border-left: none;
         display: block;
         padding-left: 20px;
+
     }
     header .header-top img {
         max-width: 38px !important;

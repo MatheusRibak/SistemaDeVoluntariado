@@ -28,10 +28,10 @@
                   </div>
                   <div class="navi">
                       <ul>
-                          <li class="active"><a href="<?=site_url('Painel_entidade/index')?>"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Home</span></a></li>
-                          <li><a href="<?=site_url('Painel_entidade/carregarPerfil')?>"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Meu Perfil</span></a></li>
-                          <li><a href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Minhas Vagas</span></a></li>
-                          <li><a href="<?=site_url('Painel_entidade/carregarCadastroVaga')?>"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Cadastrar Nova Vaga</span></a></li>
+                          <li><a href="<?=site_url('Painel_voluntario/Index')?>"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Home</span></a></li>
+                          <li class="active"><a href="<?=site_url('Painel_voluntario/carregaPerfilVoluntario')?>"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Meu Perfil</span></a></li>
+                          <li><a href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Procurar Vaga</span></a></li>
+
 
 
                       </ul>
@@ -66,9 +66,9 @@
                                           <ul class="dropdown-menu">
                                               <li>
                                                   <div class="navbar-content">
-                                                      <span>    <?php echo $dadosEntidade->nome ?></span>
+                                                      <span>    <?php echo $dadosVoluntario->nome ?></span>
                                                       <p class="text-muted small">
-                                                          <?php echo $dadosEntidade->email ?>
+                                                          <?php echo $dadosVoluntario->email ?>
                                                       </p>
                                                       <div class="divider">
                                                       </div>
@@ -84,14 +84,66 @@
                       </header>
                   </div>
                   <div class="user-dashboard">
-                        <h1>Seja Bem-vindo  <?php echo $dadosEntidade->nome ?>!</h1>
+                      <h1>Hello:  <?php echo $dadosVoluntario->nome ?></h1>
                       <div class="row">
                           <div class="col-md-12 col-sm-5 col-xs-12 ">
 
                               <div class="sales">
-                                  <h2>Your Sale</h2>
 
 
+																	<form action="<?=site_url('Painel_voluntario/atualizar')?>" method="post">
+																		<div class="row">
+
+
+                                      <div class="col-md-12">
+                                        <div class="form-group col-md-6">
+                                          <label for="exampleInputEmail1">Nome</label> <input
+                                            type="text" class="form-control" name="nome"
+                                            placeholder="Nome" value="<?php echo $dadosVoluntario->nome ?>"  />
+                                        </div>
+                                        <div class="col-md-6">
+  																				<div class="form-group">
+  																					<label>Telefone</label> <input type="tel" class="form-control"
+  																						name="telefone" placeholder="telefone"
+  																						value="<?php echo $dadosVoluntario->telefone ?>" required/>
+  																				</div>
+  																			</div>
+                                        <input type="hidden" name="email" value="<?php echo $dadosVoluntario->email ?>">
+                                      </div>
+
+                                      <div class="col-md-12">
+                                        <div class="form-group col-md-6">
+                                          <label for="exampleInputEmail1">Email</label> <input
+                                            type="email" class="form-control" name=""
+                                            placeholder="Email" value="<?php echo $dadosVoluntario->email ?>" disabled  />
+                                        </div>
+                                        <div class="col-md-6">
+                                          <div class="form-group">
+                                            <label>Senha</label> <input type="password" class="form-control"
+                                              name="senha" placeholder="senha"
+                                              value="<?php echo $dadosVoluntario->senha ?>" required/>
+                                          </div>
+                                        </div>
+
+                                      </div>
+
+
+
+
+
+
+																		</div>
+
+
+
+
+
+
+
+																		<button type="submit" class="btn btn-primary pull-right">SALVAR
+																			ALTERAÇÕES</button>
+
+																	</form>
                               </div>
 
                           </div>
@@ -102,8 +154,5 @@
           </div>
 
       </div>
-
-
-
   </body>
 </html>

@@ -24,16 +24,14 @@
           <div class="row display-table-row">
               <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
                   <div class="logo">
-                      <a hef="home.html"><img src="http://jskrishna.com/work/merkury/images/logo.png" alt="merkery_logo" class="hidden-xs hidden-sm">
-                          <img src="http://jskrishna.com/work/merkury/images/circle-logo.png" alt="merkery_logo" class="visible-xs visible-sm circle-logo">
-                      </a>
+                      <span><h2>Eu Voluntário</h2></span>
                   </div>
                   <div class="navi">
                       <ul>
-                          <li class="active"><a href="<?=site_url('Painel_entidade/index')?>"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Home</span></a></li>
-                          <li><a href="<?=site_url('Painel_entidade/carregarPerfil')?>"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Meu Perfil</span></a></li>
-                          <li><a href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Minhas Vagas</span></a></li>
-                          <li><a href="<?=site_url('Painel_entidade/carregarCadastroVaga')?>"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Cadastrar Nova Vaga</span></a></li>
+                          <li class="active"><a href="<?=site_url('Painel_voluntario/index')?>"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Home</span></a></li>
+                          <li><a href="<?=site_url('Painel_voluntario/carregaPerfilVoluntario')?>"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Meu Perfil</span></a></li>
+                          <li><a href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Procurar Vaga</span></a></li>
+
 
 
                       </ul>
@@ -54,21 +52,14 @@
                                       </button>
                                   </div>
                               </nav>
-                              <div class="search hidden-xs hidden-sm">
-                                  <input type="text" placeholder="Search" id="search">
-                              </div>
+
                           </div>
                           <div class="col-md-5">
                               <div class="header-rightside">
                                   <ul class="list-inline header-top pull-right">
-                                      <li class="hidden-xs"><a href="#" class="add-project" data-toggle="modal" data-target="#add_project">Add Project</a></li>
-                                      <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
-                                      <li>
-                                          <a href="#" class="icon-info">
-                                              <i class="fa fa-bell" aria-hidden="true"></i>
-                                              <span class="label label-primary">3</span>
-                                          </a>
-                                      </li>
+
+
+
                                       <li class="dropdown">
                                           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="http://jskrishna.com/work/merkury/images/user-pic.jpg" alt="user">
                                               <b class="caret"></b></a>
@@ -93,45 +84,19 @@
                       </header>
                   </div>
                   <div class="user-dashboard">
-                      <h1>Hello, JS</h1>
+                      <h1>Seja Bem-vindo  <?php echo $dadosVoluntario->nome ?>!</h1>
                       <div class="row">
                           <div class="col-md-12 col-sm-5 col-xs-12 ">
 
                               <div class="sales">
                                   <h2>Your Sale</h2>
 
-                                  <div class="btn-group">
-                                      <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                          <span>Period:</span> Last Year
-                                      </button>
-                                      <div class="dropdown-menu">
-                                          <a href="#">2012</a>
-                                          <a href="#">2014</a>
-                                          <a href="#">2015</a>
-                                          <a href="#">2016</a>
-                                      </div>
-                                  </div>
-                                    <input type="text" name="name" value="" class="form-control">
+
+
                               </div>
 
                           </div>
-                          <div class="col-md-7 col-sm-7 col-xs-12 gutter">
 
-                              <div class="sales report">
-                                  <h2>Report</h2>
-                                  <div class="btn-group">
-                                      <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                          <span>Period:</span> Last Year
-                                      </button>
-                                      <div class="dropdown-menu">
-                                          <a href="#">2012</a>
-                                          <a href="#">2014</a>
-                                          <a href="#">2015</a>
-                                          <a href="#">2016</a>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
                       </div>
                   </div>
               </div>
@@ -141,30 +106,7 @@
 
 
 
-      <!-- Modal -->
-      <div id="add_project" class="modal fade" role="dialog">
-          <div class="modal-dialog">
 
-              <!-- Modal content-->
-              <div class="modal-content">
-                  <div class="modal-header login-header">
-                      <button type="button" class="close" data-dismiss="modal">×</button>
-                      <h4 class="modal-title">Add Project</h4>
-                  </div>
-                  <div class="modal-body">
-                              <input type="text" placeholder="Project Title" name="name">
-                              <input type="text" placeholder="Post of Post" name="mail">
-                              <input type="text" placeholder="Author" name="passsword">
-                              <textarea placeholder="Desicrption"></textarea>
-                      </div>
-                  <div class="modal-footer">
-                      <button type="button" class="cancel" data-dismiss="modal">Close</button>
-                      <button type="button" class="add-project" data-dismiss="modal">Save</button>
-                  </div>
-              </div>
-
-          </div>
-      </div>
 
   </body>
 </html>
