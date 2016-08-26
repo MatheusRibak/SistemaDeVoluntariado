@@ -52,7 +52,8 @@ class Entidade extends CI_Controller {
 			$this->form_validation->set_rules('entidade_rua', 'Rua', 'required|max_length[120]');
 			$this->form_validation->set_rules('entidade_bairro', 'Bairro', 'required|max_length[120]');
 			$this->form_validation->set_rules('entidade_numero', 'Número', 'required|max_length[120]');
-			$this->form_validation->set_rules('entidade_cidade', 'UF', 'required|max_length[120]');
+			$this->form_validation->set_rules('entidade_cidade', 'Cidade', 'required|max_length[120]');
+			$this->form_validation->set_rules('entidade_uf', 'UF', 'required|max_length[120]');
 			$this->form_validation->set_rules('entidade_cep', 'CEP', 'required|max_length[120]');
 
 			if ($this->form_validation->run() == FALSE) {

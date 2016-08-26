@@ -24,4 +24,26 @@ class Vaga_model extends CI_Model {
        return $this->db->insert('vaga', $this);
    }
 
+   function getVagas($teste) {
+
+	 $this->db
+   ->select("*")
+   ->from("vaga")
+   ->like('nome', $teste);
+
+	 return $qr = $this->db->get()->result();
+
+}
+
+    function getVagaSozinha($id_vaga) {
+
+    	$this->db
+      ->select("*")
+      ->from("vaga")
+      ->like('id_vaga', $id_vaga);
+
+    	return $query = $this->db->get()->result();
+
+    }
+
 }

@@ -19,6 +19,12 @@ class Painel_voluntario extends MY_ControllerLogado {
 		$this->load->view('perfil_voluntario', $data);
 	}
 
+	public function carregaFormularioBusca() {
+		$id_voluntario = $this->session->userdata('id_voluntario');
+		$data = array("dadosVoluntario" => $this->Voluntario_model->getVoluntario($id_voluntario)->row());
+		$this->load->view('procura_vaga', $data);
+	}
+
 	public function Atualizar() {
 
 		$data = array();
@@ -42,9 +48,55 @@ class Painel_voluntario extends MY_ControllerLogado {
 	}
 
 	public function carregarPerfil() {
-		$id_entidade = $this->session->userdata('id_entidade');
-		$data = array("dadosEntidade" => $this->Entidade_model->getEntidade($id_entidade)->row());
-		$this->load->view('perfil_entidade', $data);
+		$id_voluntario = $this->session->userdata('id_voluntario');
+		$data = array("dadosVoluntario" => $this->Voluntario_model->getVoluntario($id_voluntario)->row());
+		$this->load->view('perfil_voluntario', $data);
 	}
+
+
+	public function gambiarra(){
+		$id_voluntario = $this->session->userdata('id_voluntario');
+		$data = array("dadosVoluntario" => $this->Voluntario_model->getVoluntario($id_voluntario)->row());
+		$this->load->view('resultado_busca', $data);
+
+
+	}
+	public function getVagas(){
+
+		$teste = $this->input->post('input_busca');
+
+
+
+		$this->db->select('*');
+		$this->db->like('nome', $this->input->post('input_busca'));
+		$retorno = $this->db->get('vaga')->num_rows();
+
+
+		if ($retorno == 0) {
+			redirect('Painel_voluntario/gambiarra/?aviso=2');
+		}
+
+		else {
+			$id_voluntario = $this->session->userdata('id_voluntario');
+			$data = array("dadosVoluntario" => $this->Voluntario_model->getVoluntario($id_voluntario)->row(),
+			"dados" => $this->Vaga_model->getVagas($teste));
+
+			$this->load->view('resultado_busca', $data);
+		}
+
+
+}
+
+		public function vagaCompleta($id_vaga, $id_entidade){
+
+		$id_voluntario = $this->session->userdata('id_voluntario');
+		$data = array("dadosVoluntario" => $this->Voluntario_model->getVoluntario($id_voluntario)->row(),
+		"dadosVaga" => $this->Vaga_model->getVagaSozinha($id_vaga),
+		"dadosEntidade" => $this->Entidade_model->getEntidadeSozinho($id_entidade));
+
+		$this->load->view('vaga_completa', $data);
+
+		}
+
 
 }

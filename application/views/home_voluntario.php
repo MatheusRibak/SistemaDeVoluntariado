@@ -15,6 +15,7 @@
 		<script type="text/javascript" src="<?=base_url('assets/js/bootstrap.js')?>"></script>
 		<script type="text/javascript" src="<?=base_url('assets/js/holder.min.js')?>"></script>
 		<script type="text/javascript" src="<?=base_url('assets/js/demo.js')?>"></script>
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
 	</head>
 
 	<body>
@@ -39,7 +40,7 @@
 							<ul class="dropdown-menu" role="menu">
 
 								<li>
-									<a href="<?=site_url('Painel_voluntario/carregaPerfilVoluntario')?>"><i class=""></i> Meu Perfil</a>
+									<a href="<?=site_url('Painel_voluntario/carregaPerfilVoluntario')?>"><i class="fa fa-user"></i> Meu Perfil</a>
 								</li>
 								<li class="divider"></li>
 
@@ -50,8 +51,8 @@
 						</li>
 
 					</ul>
-					<form class="navbar-form navbar-right">
-						<input type="text" class="form-control" placeholder="Search...">
+					<form class="navbar-form navbar-right" action="<?=site_url('Painel_voluntario/getVagas')?>" method="post">
+						<input type="text" class="form-control" placeholder="Procurar Vaga..." name="input_busca">
 					</form>
 				</div>
 			</div>
@@ -62,13 +63,13 @@
 				<div class="col-sm-3 col-md-2 sidebar">
 					<ul class="nav nav-sidebar">
 						<li class="active">
-							<a href="<?=site_url('Painel_voluntario/Index')?>"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Home</span></a>
+							<a href="<?=site_url('Painel_voluntario/Index')?>"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Home</span></a>
 						</li>
 						<li class="">
-							<a href="<?=site_url('Painel_voluntario/carregaPerfilVoluntario')?>"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Meu Perfil</span></a>
+							<a href="<?=site_url('Painel_voluntario/carregaPerfilVoluntario')?>"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Meu Perfil</span></a>
 						</li>
 						<li>
-							<a href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Procurar Vaga</span></a>
+							<a href="<?=site_url('Painel_voluntario/carregaFormularioBusca')?>"><i class="fa fa-search" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Procurar Vaga</span></a>
 						</li>
 
 					</ul>

@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Perfil - Voluntário</title>
+		<title>Procurar Vaga - Voluntário</title>
 		<link rel="stylesheet" href="<?=base_url('assets/css/bootstrap.css')?>"  >
 
 		<link rel="stylesheet" href="<?=base_url('assets/css/bootstrap.min.css')?>"  >
@@ -66,78 +66,109 @@
 						<li>
 							<a href="<?=site_url('Painel_voluntario/Index')?>"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Home</span></a>
 						</li>
-						<li class="active">
+						<li class="">
 							<a href="<?=site_url('Painel_voluntario/carregaPerfilVoluntario')?>"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Meu Perfil</span></a>
 						</li>
-						<li>
-							<a href="#"><i class="fa fa-search" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Procurar Vaga</span></a>
+						<li class="active">
+							<a href="<?=site_url('Painel_voluntario/carregaFormularioBusca')?>"><i class="fa fa-search" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Procurar Vaga</span></a>
 						</li>
 
 					</ul>
 
 				</div>
 				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-					<h1 class="page-header">Meu Perfil</h1>
+					<h1 class="page-header">Procurar Vaga</h1>
 					<div class="row">
 						<div class="col-md-12 col-sm-5 col-xs-12 ">
 
 							<div class="sales">
 								<!-- -->
 
-								<form action="<?=site_url('Painel_voluntario/atualizar')?>" method="post">
+								<form action="<?=site_url('Painel_voluntario/getVagas')?>" method="post">
 									<div class="row">
 
-										<div class="col-md-12">
-											<div class="form-group col-md-6">
-												<label for="exampleInputEmail1">Nome</label>
-												<input
-												type="text" class="form-control" name="nome"
-												placeholder="Nome" value="<?php echo $dadosVoluntario->nome ?>"  />
-											</div>
-											<div class="col-md-6">
-												<div class="form-group">
-													<label>Telefone</label>
-													<input type="tel" class="form-control"
-													name="telefone" placeholder="telefone"
-													value="<?php echo $dadosVoluntario->telefone ?>" required/>
-												</div>
-											</div>
-											<input type="hidden" name="email" value="<?php echo $dadosVoluntario->email ?>">
-										</div>
+
 
 										<div class="col-md-12">
-											<div class="form-group col-md-6">
-												<label for="exampleInputEmail1">Email</label>
-												<input
-												type="email" class="form-control" name=""
-												placeholder="Email" value="<?php echo $dadosVoluntario->email ?>" disabled  />
+											<div class="form-group col-sm12">
+                        <label for="">Por favor digite algo referente a vaga que deseja pesquisar...</label>
+											<br>	<input
+												type="text" class="form-control" name="input_busca"
+												placeholder="Procurar vaga" value=""   />
 											</div>
-											<div class="col-md-6">
-												<div class="form-group">
-													<label>Senha</label>
-													<input type="password" class="form-control"
-													name="senha" placeholder="senha"
-													value="<?php echo $dadosVoluntario->senha ?>" required/>
-												</div>
-											</div>
+
 
 										</div>
 
 									</div>
 
-									<button type="submit" class="btn btn-primary pull-right">
-										SALVAR
-										ALTERAÇÕES
+									<button type="submit" class="btn btn-primary">
+										PROCURAR VAGA
 									</button>
 
 								</form>
 							</div>
+
+
 
 						</div>
 
 					</div>
 
 				</div>
+
+
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header">Resultados da sua Busca</h1>
+          <div class="row">
+            <div class="col-md-12 col-sm-5 col-xs-12 ">
+
+              <div class="sales">
+                <!-- -->
+
+
+                  <div class="row">
+
+
+
+                    <div class="col-md-12">
+                      <div class="form-group col-sm12">
+                        <div class="table-responsive">
+    <table class="table table-hover no-margin">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Presencial?</th>
+                <th>Vaga Completa</th>
+            </tr>
+        </thead>
+        <tbody>
+					<td colspan="5" align = "center">
+							Você ainda não pesquisou nada...
+						 </td>
+        </tbody>
+    </table>
+</div>
+                      </div>
+
+
+                    </div>
+
+                  </div>
+
+
+
+              </div>
+
+
+
+            </div>
+
+          </div>
+
+        </div>
 			</div>
 		</div>
 
