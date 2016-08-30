@@ -61,22 +61,31 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-sm-3 col-md-2 sidebar">
-					<ul class="nav nav-sidebar">
+					<ul class="nav nav-sideba">
 						<li class="active">
-							<a href="<?=site_url('Painel_voluntario/Index')?>"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Home</span></a>
+							<a href="<?=site_url('Painel_voluntario/Index')?>"><i class="fa fa-home" aria-hidden="true"></i><span class=""> Home</span></a>
 						</li>
 						<li class="">
 							<a href="<?=site_url('Painel_voluntario/carregaPerfilVoluntario')?>"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Meu Perfil</span></a>
 						</li>
 						<li>
-							<a href="<?=site_url('Painel_voluntario/carregaFormularioBusca')?>"><i class="fa fa-search" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Procurar Vaga</span></a>
+							<a href="<?=site_url('Painel_voluntario/carregaFormularioBusca')?>"><i class="fa fa-search" aria-hidden="true"></i><span class=""> Procurar Vaga</span></a>
 						</li>
 
 					</ul>
 
 				</div>
+
+
 				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-					teste
+
+<div class="col-sm-12">
+	<?php if ($this->input->get('aviso') == 2) { ?>
+	<div class="alert alert-success">
+		Você se candidatou a vaga com sucesso! Logo você vai ter um retorno referente a mesma!!!
+	</div>
+	<?php } ?>
+</div>
 
 				</div>
 			</div>

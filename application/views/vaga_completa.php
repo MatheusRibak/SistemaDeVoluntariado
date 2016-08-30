@@ -197,7 +197,13 @@
 	</div>
   <?php endforeach; ?>
 	<div class="col-md-12">
-<form class="" action="index.html" method="post">
+<form class="" action="<?=site_url('Painel_voluntario/candidataVaga')?>" method="post">
+	  <?php foreach ($dadosEntidade as $entidade): ?>
+<input type="hidden" name="id_entidade" value="<?php echo $entidade->id_entidade ?>">
+			  <?php endforeach; ?>
+				  <?php foreach ($dadosVaga as $row): ?>
+<input type="hidden" name="id_vaga" value="<?php echo $row->id_vaga ?>">
+						<?php endforeach; ?>
 	<button type="submit" class="btn btn-primary pull-right">
 		Quero me Candidatar <span class="glyphicon glyphicon-ok"></span>
 	</button>

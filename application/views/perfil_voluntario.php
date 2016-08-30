@@ -70,7 +70,7 @@
 							<a href="<?=site_url('Painel_voluntario/carregaPerfilVoluntario')?>"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Meu Perfil</span></a>
 						</li>
 						<li>
-							<a href="#"><i class="fa fa-search" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Procurar Vaga</span></a>
+							<a href="<?=site_url('Painel_voluntario/carregaFormularioBusca')?>"><i class="fa fa-search" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Procurar Vaga</span></a>
 						</li>
 
 					</ul>
@@ -116,8 +116,8 @@
 												<div class="form-group">
 													<label>Senha</label>
 													<input type="password" class="form-control"
-													name="senha" placeholder="senha"
-													value="<?php echo $dadosVoluntario->senha ?>" required/>
+													name="senha_voluntario" placeholder="senha"
+													value="" />
 												</div>
 											</div>
 

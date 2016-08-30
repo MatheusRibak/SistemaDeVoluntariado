@@ -13,7 +13,7 @@ class Vaga_model extends CI_Model {
   	public  $cidade;
     public  $id_entidade;
     public  $data_validade;
-    public  $data_cadastro;
+    public  $ativo;
 
     function __construct() {
         parent::__construct();
@@ -44,6 +44,10 @@ class Vaga_model extends CI_Model {
 
     	return $query = $this->db->get()->result();
 
+    }
+
+    function cadastrarCandidato(){
+       return $this->db->insert('vaga_candidato', $this);
     }
 
 }

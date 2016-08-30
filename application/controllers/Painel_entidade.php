@@ -44,6 +44,7 @@ class Painel_entidade extends MY_ControllerLogado {
 		$this->Vaga_model->cidade = $this->input->post('vaga_cidade');
 		$this->Vaga_model->id_entidade = $session_id = $this->session->userdata('id_entidade');
 		$this->Vaga_model->data_validade = $this->input->post('vaga_data_validade');
+		$this->Vaga_model->ativo = 'SIM';
 
 		$this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
 		$this->form_validation->set_rules('vaga_nome', 'Nome', 'required|max_length[120]');
@@ -51,8 +52,8 @@ class Painel_entidade extends MY_ControllerLogado {
 		$this->form_validation->set_rules('vaga_importancia', 'Importancia da vaga', 'required|max_length[120]');
 		$this->form_validation->set_rules('vaga_presencial', 'Informar se a vaga é presencial', 'required|max_length[120]');
 		$this->form_validation->set_rules('vaga_quantidade_pessoa', 'Informar a quantidade de pessoas', 'required|max_length[5]');
-		$this->form_validation->set_rules('vaga_estado', 'Estado', 'required|max_length[120]');
-		$this->form_validation->set_rules('vaga_cidade', 'Cidade', 'required|max_length[120]');
+	//	$this->form_validation->set_rules('vaga_estado', 'Estado', 'required|max_length[120]');
+	//	$this->form_validation->set_rules('vaga_cidade', 'Cidade', 'required|max_length[120]');
 		$this->form_validation->set_rules('vaga_data_validade', 'Data de Validade', 'required|max_length[120]');
 
 		if ($this->form_validation->run() == FALSE) {

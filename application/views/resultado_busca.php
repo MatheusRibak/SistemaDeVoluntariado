@@ -17,6 +17,9 @@
 		<script type="text/javascript" src="<?=base_url('assets/js/holder.min.js')?>"></script>
 		<script type="text/javascript" src="<?=base_url('assets/js/demo.js')?>"></script>
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+
+		<script type="text/javascript" src="<?=base_url('assets/js/paginacao.js')?>"></script>
+
 	</head>
 
 	<body>
@@ -135,7 +138,9 @@
                     <div class="col-md-12">
                       <div class="form-group col-sm12">
                         <div class="table-responsive">
-    <table class="table table-hover no-margin">
+    <table class="table table-hover no-margin" >
+
+
         <thead>
             <tr>
                 <th>Nome</th>
@@ -144,7 +149,7 @@
                 <th>Vaga Completa</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="myTable">
           <?php if (!empty($dados)):
 
             foreach ($dados as $row): ?>
@@ -171,7 +176,12 @@
 						 }
            endif; ?>
         </tbody>
+
     </table>
+
+</div>
+<div class="col-md-12 text-center">
+<ul class="pagination pagination-lg pager" id="myPager"></ul>
 </div>
                       </div>
 
