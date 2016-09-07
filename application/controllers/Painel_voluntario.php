@@ -8,7 +8,8 @@ class Painel_voluntario extends MY_ControllerLogado {
 
 		$id_voluntario = $this->session->userdata('id_voluntario');
 
-		$data = array("dadosVoluntario" => $this->Voluntario_model->getVoluntario($id_voluntario)->row());
+		$data = array("dadosVoluntario" => $this->Voluntario_model->getVoluntario($id_voluntario)->row(),
+		"minhasVagas" => $this->Candidato_model->minhasVagasAtuais());
 
 		$this->load->view('home_voluntario', $data);
 	}
@@ -114,18 +115,44 @@ class Painel_voluntario extends MY_ControllerLogado {
 		}
 
 		public function candidataVaga(){
+		$id_voluntario = $this->session->userdata('id_voluntario');
+
+		$id_vaga =  $this->input->post('id_vaga');
+		$this->db
+						->select("*")
+						->from("vaga_candidato")
+						->where("id_voluntario", $id_voluntario)
+						->where("id_vaga", $id_vaga);
+
+		$dadosCandidato = $this->db->get();
+
+		if ($dadosCandidato->num_rows() > 0) {
+				redirect('Painel_voluntario/carregaFormularioBusca/?aviso=5');
+		}else {
 			$data = array();
 
 		$this->Candidato_model->id_entidade = $this->input->post('id_entidade');
 		$this->Candidato_model->id_vaga = $this->input->post('id_vaga');
 		$this->Candidato_model->id_voluntario = $this->session->userdata('id_voluntario');
 		$this->Candidato_model->status_vaga = 'Aguardando Reposta';
-
 		$this->Candidato_model->Salvar();
 
-			redirect('Painel_voluntario/index/?aviso=2');
+				redirect('Painel_voluntario/index/?aviso=2');
+		}
+
+
 
 		}
+
+		public function excluir($id_vaga, $id_voluntario){
+
+	$id_voluntario = $this->session->userdata('id_voluntario');
+	$data = array(
+			"excluir" => $this->Candidato_model->excluir($id_academico, $id_vaga)
+	);
+
+	redirect('Painel_voluntario/index/?aviso=3');
+}
 
 
 

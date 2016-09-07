@@ -20,16 +20,17 @@ class Vaga_model extends CI_Model {
     }
 
     public function Salvar(){
-       //método que vai realizar o insert na tabela de vaga do sistema
        return $this->db->insert('vaga', $this);
    }
 
    function getVagas($teste) {
 
+   $ativo = 'SIM';
 	 $this->db
    ->select("*")
    ->from("vaga")
-   ->like('nome', $teste);
+   ->like('nome', $teste)
+   ->where('ativo', $ativo);
 
 	 return $qr = $this->db->get()->result();
 
@@ -46,8 +47,7 @@ class Vaga_model extends CI_Model {
 
     }
 
-    function cadastrarCandidato(){
-       return $this->db->insert('vaga_candidato', $this);
-    }
+
+
 
 }

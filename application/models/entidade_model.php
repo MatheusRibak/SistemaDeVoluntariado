@@ -20,7 +20,6 @@ class Entidade_model extends CI_Model {
 	}
 
 	public function Salvar() {
-		//método que vai realizar o insert na tabela de entidade do sistema
 		return $this->db->insert('entidade', $this);
 	}
 

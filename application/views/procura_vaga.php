@@ -30,7 +30,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#">Project name</a>
+					<a class="navbar-brand" href="#">Eu Voluntário</a>
 				</div>
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
@@ -39,14 +39,16 @@
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span> <?php echo $dadosVoluntario->nome ?></span> <span class="caret"></span> </a>
 
 							<ul class="dropdown-menu" role="menu">
-
 								<li>
-									<a href="<?=site_url('Painel_voluntario/carregaPerfilVoluntario')?>"><i class=""></i> Meu Perfil</a>
+									<a href="<?=site_url('Painel_voluntario')?>"><i class="fa fa-home"></i>  Home</a>
+								</li>
+								<li>
+									<a href="<?=site_url('Painel_voluntario/carregaPerfilVoluntario')?>"><i class="fa fa-user"></i>   Meu Perfil</a>
 								</li>
 								<li class="divider"></li>
 
 								<li>
-									<a href="<?=site_url('Painel_voluntario/deslogar')?>"><i class=""></i>Sair</a>
+									<a href="<?=site_url('Painel_voluntario/deslogar')?>"><i class="fa fa-sign-out"></i>Sair</a>
 								</li>
 							</ul>
 						</li>
@@ -76,10 +78,18 @@
 					</ul>
 
 				</div>
+
 				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+					<div class="col-sm-12">
+						<?php if ($this->input->get('aviso') == 5) { ?>
+						<div class="alert alert-danger">
+							Você já se candidatou a essa vaga anteriormente!!!
+						</div>
+						<?php } ?>
+					</div>
 					<h1 class="page-header">Procurar Vaga</h1>
 					<div class="row">
-						<div class="col-md-12 col-sm-5 col-xs-12 ">
+						<div class="col-sm-12  col-xs-12 ">
 
 							<div class="sales">
 								<!-- -->
@@ -89,8 +99,8 @@
 
 
 
-										<div class="col-md-12">
-											<div class="form-group col-sm12">
+										<div class="col-sm-12">
+											<div class="form-group col-sm-12">
                         <label for="">Por favor digite algo referente a vaga que deseja pesquisar...</label>
 											<br>	<input
 												type="text" class="form-control" name="input_busca"
@@ -122,7 +132,7 @@
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">Resultados da sua Busca</h1>
           <div class="row">
-            <div class="col-md-12 col-sm-5 col-xs-12 ">
+            <div class="col-sm-12  col-xs-12 ">
 
               <div class="sales">
                 <!-- -->
@@ -132,8 +142,8 @@
 
 
 
-                    <div class="col-md-12">
-                      <div class="form-group col-sm12">
+                    <div class="col-sm-12">
+                      <div class="form-group col-sm-12">
                         <div class="table-responsive">
     <table class="table table-hover no-margin">
         <thead>

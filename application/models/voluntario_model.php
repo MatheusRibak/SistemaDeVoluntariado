@@ -13,7 +13,6 @@ class Voluntario_model extends CI_Model {
 	}
 
 	public function Salvar() {
-		//método que vai realizar o insert na tabela de voluntário do sistema
 		return $this->db->insert('voluntario', $this);
 	}
 
