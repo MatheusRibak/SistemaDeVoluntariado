@@ -47,6 +47,48 @@ class Vaga_model extends CI_Model {
 
     }
 
+  public  function getVagaEntidadeAtiva() {
+    $id_entidade = $this->session->userdata('id_entidade');
+    $ativo = 'SIM';
+    $this->db
+    ->select("*")
+    ->from("vaga")
+    ->where('id_entidade', $id_entidade)
+    ->where('ativo', $ativo);
+
+    return $qr = $this->db->get()->result();
+
+ }
+
+  public  function getVagaEntidadeFinalizada() {
+     $id_entidade = $this->session->userdata('id_entidade');
+     $ativo = 'NAO';
+     $this->db
+     ->select("*")
+     ->from("vaga")
+     ->where('id_entidade', $id_entidade)
+     ->where('ativo', $ativo);
+
+     return $qr = $this->db->get()->result();
+
+    }
+
+  public function recadastrarVaga($data, $id_vaga){
+      $id_entidade = $this->session->userdata('id_entidade');
+      $this->db->where('id_vaga', $id_vaga);
+      $this->db->where('id_entidade', $id_entidade);
+      $this->db->set($data);
+      return $this->db->update('vaga');
+    }
+
+    public function finalizarVaga($data, $id_vaga){
+        $id_entidade = $this->session->userdata('id_entidade');
+        $this->db->where('id_vaga', $id_vaga);
+        $this->db->where('id_entidade', $id_entidade);
+        $this->db->set($data);
+        return $this->db->update('vaga');
+      }
+
 
 
 

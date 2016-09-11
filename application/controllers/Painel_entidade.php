@@ -31,6 +31,7 @@ class Painel_entidade extends MY_ControllerLogado {
 		$this->load->view('cadastro_vaga', $data);
 	}
 
+
 	public function salvarVaga() {
 		$dados_vaga = array();
 
@@ -66,6 +67,10 @@ class Painel_entidade extends MY_ControllerLogado {
 
 	}
 
+	public function finalizarVaga(){
+
+	}
+
 	function Atualizar() {
 
 		$data = array();
@@ -88,5 +93,6 @@ class Painel_entidade extends MY_ControllerLogado {
 		$this->load->view('perfil_entidade', $dados2);
 
 	}
+
 
 }

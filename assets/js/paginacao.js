@@ -102,6 +102,18 @@ $.fn.pageMe = function(opts){
 
 $(document).ready(function(){
 
-  $('#myTable').pageMe({pagerSelector:'#myPager',showPrevNext:true,hidePageNumbers:false,perPage:8});
+  $('#myTable').pageMe({pagerSelector:'#myPager',showPrevNext:true,hidePageNumbers:false,perPage:3});
+
+});
+
+$(document).ready(function(){
+
+  $('#myTable1').pageMe({pagerSelector:'#myPager1',showPrevNext:true,hidePageNumbers:false,perPage:3});
+
+});
+
+$(document).ready(function(){
+
+  $('#myTable2').pageMe({pagerSelector:'#myPager2',showPrevNext:true,hidePageNumbers:false,perPage:3});
 
 });

@@ -15,6 +15,8 @@
 		<script type="text/javascript" src="<?=base_url('assets/js/bootstrap.js')?>"></script>
 		<script type="text/javascript" src="<?=base_url('assets/js/holder.min.js')?>"></script>
 		<script type="text/javascript" src="<?=base_url('assets/js/demo.js')?>"></script>
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+				<script type="text/javascript" src="<?=base_url('assets/js/paginacao.js')?>"></script>
 	</head>
 
 	<body>
@@ -72,7 +74,7 @@
 							<a href="<?=site_url('Painel_entidade/carregarPerfil')?>"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Meu Perfil</span></a>
 						</li>
 						<li>
-							<a href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Minhas Vagas</span></a>
+							<a href="<?=site_url('Vaga/carregaMinhasVagas')?>"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Minhas Vagas</span></a>
 						</li>
 						<li class="">
 							<a href="<?=site_url('Painel_entidade/carregarCadastroVaga')?>"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Cadastrar Nova Vaga</span></a>
@@ -81,7 +83,75 @@
 
 				</div>
 				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-					teste
+					<div class="row">
+						<div class="col-sm-12  col-xs-12 ">
+
+				<div class="sales">
+
+
+								<!-- -->
+
+
+
+
+
+											<div class="form-group col-sm-12">
+																<span><h3>Candidaturas para as minhas vagas</h3></span>
+												<div class="table-responsive">
+				<table class="table">
+				<thead>
+						<tr>
+								<th>Vaga</th>
+								<th>Voluntário</th>
+								<th>Opções</th>
+						</tr>
+				</thead>
+				<tbody id="myTable">
+				<?php if (!empty($minhasVagas)):
+					 foreach ($minhasVagas as $row): ?>
+										<td>
+											<?php echo $row->nome;?>
+										</td>
+										<td>
+											<?php echo $row->descricao;?>
+										</td>
+										<td>
+											<a  href="<?= site_url('Painel_entidade/excluir/' . $row->id_vaga . '/' . $row->id_entidade ) ?>"
+												class="btn btn-danger btn-sm"
+												onclick="return confirm('Têm certeza que deseja excluir esta informação?')">
+													<i class="fa fa-trash-o" aria-hidden="true"></i>   Excluir Vaga
+											</a>
+										</td>
+
+							</tr>
+										<?php endforeach; ?>
+									<?php else: {
+										echo "<td colspan='5' align = 'center'>
+									Você não possui nenhuma candidatura para as suas vagas atualmente...
+															</td>";
+									} ?>
+									<?php	endif; ?>
+				</tbody>
+
+				</table>
+				<div class="text-center">
+				<ul class="pagination pagination-lg pager" id="myPager"></ul>
+				</div>
+
+				</div>
+
+
+
+											</div>
+											</div>
+
+
+
+
+						</div>
+
+					</div>
+
 
 				</div>
 			</div>
