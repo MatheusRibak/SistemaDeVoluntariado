@@ -16,6 +16,7 @@
 		<script type="text/javascript" src="<?=base_url('assets/js/bootstrap.js')?>"></script>
 		<script type="text/javascript" src="<?=base_url('assets/js/holder.min.js')?>"></script>
 		<script type="text/javascript" src="<?=base_url('assets/js/demo.js')?>"></script>
+		<script src="<?=base_url('assets/js/jquery.mask.min.js')?>"></script>
 		<script type="text/javascript">
 			function trocaUrgencia() {
 				var e = document.getElementById("listaUrgencia");
@@ -106,6 +107,11 @@
 					<h1 class="page-header">Cadastrar nova vaga</h1>
 
 					<?php echo validation_errors(); ?>
+					<?php if ($this->input->get('aviso') == 1) { ?>
+					<div class="alert alert-success">
+						Você cadastrou a sua vaga com sucesso!!!
+					</div>
+					<?php } ?>
 
 					<div class="row">
 						<div class="col-md-12 col-sm-5 col-xs-12 ">
@@ -175,21 +181,19 @@
 										</div>
 									</div>
 
-									<div class="form-group form-inline">
-										<label class="col-sm-2">UF/CIDADE</label>
+									<div class="form-group">
+										<label class="col-sm-2">Cidade / UF
+											<br> </label>
 
-										<div class="col-sm-9">
-											<fieldset>
-												<select id="estado" name="estado" class="col-xs-12 col-sm-6"
-												onchange="trocaUf()"></select>
-												<input type="hidden"
-												name="vaga_estado" id="vaga_estado" value="" />
-												<select id="cidade" name="cidade" class="col-xs-12 col-sm-6"
-												onchange="trocaCidade()"></select>
-												<input type="hidden"
-												name="vaga_cidade" id="vaga_cidade" value="" />
-											</fieldset>
-										</div>
+											<div class="col-sm-5">
+												<input type="text" class="form-control" name="vaga_cidade"
+												value="" placeholder="Cidade" required/>
+											</div>
+											<div class="col-sm-4">
+												<input type="text" class="form-control" name="vaga_estado"
+												value="" placeholder="Estado" required/>
+											</div>
+
 
 									</div>
 
@@ -218,7 +222,7 @@
 										<label class="col-sm-2"> Data de Validade</label>
 										<div class="col-sm-9">
 
-											<input type="text" name="vaga_data_validade" class="form-control" value="">
+											<input type="text" name="vaga_data_validade" class="form-control data" value="">
 
 										</div>
 									</div>
@@ -242,6 +246,8 @@
 				</div>
 			</div>
 		</div>
-
+		<script type="text/javascript">
+																						$('.data').mask('00-00-0000');
+</script>
 	</body>
 </html>

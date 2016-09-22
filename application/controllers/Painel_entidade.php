@@ -55,7 +55,7 @@ class Painel_entidade extends MY_ControllerLogado {
 		$this->form_validation->set_rules('vaga_quantidade_pessoa', 'Informar a quantidade de pessoas', 'required|max_length[5]');
 	//	$this->form_validation->set_rules('vaga_estado', 'Estado', 'required|max_length[120]');
 	//	$this->form_validation->set_rules('vaga_cidade', 'Cidade', 'required|max_length[120]');
-		$this->form_validation->set_rules('vaga_data_validade', 'Data de Validade', 'required|max_length[120]');
+	//	$this->form_validation->set_rules('vaga_data_validade', 'Data de Validade', 'required|max_length[120]');
 
 		if ($this->form_validation->run() == FALSE) {
 			$this->carregarCadastroVaga();

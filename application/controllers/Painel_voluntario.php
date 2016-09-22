@@ -146,12 +146,34 @@ class Painel_voluntario extends MY_ControllerLogado {
 
 		public function excluir($id_vaga, $id_voluntario){
 
-	$id_voluntario = $this->session->userdata('id_voluntario');
-	$data = array(
-			"excluir" => $this->Candidato_model->excluir($id_academico, $id_vaga)
-	);
+				$id_voluntario = $this->session->userdata('id_voluntario');
+			 	$data_atual = date('d-m-Y');
 
-	redirect('Painel_voluntario/index/?aviso=3');
+			 	echo $data_atual;
+
+			  $this->db->select('data_validade')
+				->from('vaga')
+				->where('id_vaga', $id_vaga);
+
+				$teste = $this->db->get()->result();
+
+				foreach ($teste as $row) {
+					$data_validade = $row->data_validade;
+					echo $data_validade;
+
+				$diferenca = strtotime($data_validade) - strtotime($data_atual);
+				 $dias = floor($diferenca / (60 * 60 * 24)); echo "A diferença é de $dias entre as datas";
+
+				 if ($dias < 2) {
+					 redirect('Painel_voluntario/index/?aviso=4');
+				} else {
+					$data = array(
+							"excluir" => $this->Candidato_model->excluir($id_academico, $id_vaga)
+					);
+					redirect('Painel_voluntario/index/?aviso=3');
+				}
+
+				}
 }
 
 

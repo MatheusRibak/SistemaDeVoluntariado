@@ -70,7 +70,6 @@ class Vaga_model extends CI_Model {
      ->where('ativo', $ativo);
 
      return $qr = $this->db->get()->result();
-
     }
 
   public function recadastrarVaga($data, $id_vaga){

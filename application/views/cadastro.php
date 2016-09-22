@@ -94,7 +94,7 @@
 						<div class="tab-content">
 							<div id="ong" class="tab-pane fade in active">
 								</br>
-								<form action="<?=base_url('salvar_entidade')?>" method="post">
+								<form action="<?=site_url('salvar_entidade')?>" method="post">
 									<div class="form-group">
 										<label for="nomeEntidade">Nome da sua organização(ONG):</label>
 										<input type="text"
@@ -173,7 +173,7 @@
 							</div>
 							<div id="entidade" class="tab-pane fade">
 								</br>
-								<form action="<?=base_url('salvar_voluntario')?>" method="post">
+								<form action="<?=site_url('salvar_voluntario')?>" method="post">
 									<div class="form-group">
 										<label for="nomeVoluntario">Nome completo:</label>
 										<input type="text"

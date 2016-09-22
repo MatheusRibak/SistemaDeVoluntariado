@@ -92,7 +92,14 @@
 		Você excluiu a sua candidatura com sucesso!!!
 	</div>
 	<?php } ?>
+	<?php if ($this->input->get('aviso') == 4) { ?>
+	<div class="alert alert-danger">
+		Você não pode excluir a vaga pois faltam menos de 48 horas para ela ser executada, caso você
+		 não compareça a ONG provavelmente irá falar mal a seu respeito no seu historico...
+	</div>
+	<?php } ?>
 </div>
+
 
 
 

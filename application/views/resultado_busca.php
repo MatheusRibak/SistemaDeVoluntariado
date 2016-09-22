@@ -33,7 +33,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#">Project name</a>
+					<a class="navbar-brand" href="#">Eu Voluntário</a>
 				</div>
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
@@ -67,13 +67,13 @@
 				<div class="col-sm-3 col-md-2 sidebar">
 					<ul class="nav nav-sidebar">
 						<li>
-							<a href="<?=site_url('Painel_voluntario/Index')?>"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Home</span></a>
+							<a href="<?=site_url('Painel_voluntario/Index')?>"><i class="fa fa-home" aria-hidden="true"></i><span> Home</span></a>
 						</li>
 						<li class="">
-							<a href="<?=site_url('Painel_voluntario/carregaPerfilVoluntario')?>"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Meu Perfil</span></a>
+							<a href="<?=site_url('Painel_voluntario/carregaPerfilVoluntario')?>"><i class="fa fa-user" aria-hidden="true"></i><span> Meu Perfil</span></a>
 						</li>
 						<li class="active">
-							<a href="<?=site_url('Painel_voluntario/carregaFormularioBusca')?>"><i class="fa fa-search" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Procurar Vaga</span></a>
+							<a href="<?=site_url('Painel_voluntario/carregaFormularioBusca')?>"><i class="fa fa-search" aria-hidden="true"></i><span> Procurar Vaga</span></a>
 						</li>
 
 					</ul>
@@ -82,7 +82,7 @@
 				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 					<h1 class="page-header">Procurar Vaga</h1>
 					<div class="row">
-						<div class="col-md-12 col-sm-5 col-xs-12 ">
+						<div class="col-md-12 col-sm-12 col-xs-12 ">
 
 							<div class="sales">
 								<!-- -->
@@ -92,8 +92,8 @@
 
 
 
-										<div class="col-md-12">
-											<div class="form-group col-sm12">
+										<div class="col-xs-12">
+											<div class="form-group ">
                         <label for="">Por favor digite algo referente a vaga que deseja pesquisar...</label>
 											<br>	<input
 												type="text" class="form-control" name="input_busca"
@@ -125,7 +125,7 @@
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">Resultados da sua Busca</h1>
           <div class="row">
-            <div class="col-md-12 col-sm-5 col-xs-12 ">
+            <div class="col-md-12 col-sm-12 col-xs-12 ">
 
               <div class="sales">
                 <!-- -->
@@ -135,8 +135,8 @@
 
 
 
-                    <div class="col-md-12">
-                      <div class="form-group col-sm12">
+                    <div class="col-sm-12">
+                      <div class="form-group">
                         <div class="table-responsive">
     <table class="table table-hover no-margin" >
 
@@ -149,7 +149,7 @@
                 <th>Vaga Completa</th>
             </tr>
         </thead>
-        <tbody id="myTable">
+        <tbody id="myTable3">
           <?php if (!empty($dados)):
 
             foreach ($dados as $row): ?>
@@ -181,7 +181,7 @@
 
 </div>
 <div class="col-md-12 text-center">
-<ul class="pagination pagination-lg pager" id="myPager"></ul>
+<ul class="pagination pagination-lg pager" id="myPager3"></ul>
 </div>
                       </div>
 

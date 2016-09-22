@@ -54,7 +54,7 @@
 						</li>
 
 						<li>
-							<a data-toggle="modal" href="<?=base_url('cadastro')?>"> <i class="fa fa-plus" aria-hidden="true"></i> Cadastrar</a>
+							<a data-toggle="modal" href="<?=site_url('cadastro')?>"> <i class="fa fa-plus" aria-hidden="true"></i> Cadastrar</a>
 						</li>
 
 					</ul>

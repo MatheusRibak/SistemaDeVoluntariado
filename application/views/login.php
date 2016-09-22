@@ -56,7 +56,7 @@
 						</li>
 
 						<li>
-							<a data-toggle="modal" href="<?=base_url('cadastro')?>"> <i class="fa fa-plus" aria-hidden="true"></i> Cadastrar</a>
+							<a data-toggle="modal" href="<?=site_url('cadastro')?>"> <i class="fa fa-plus" aria-hidden="true"></i> Cadastrar</a>
 						</li>
 
 					</ul>
@@ -168,6 +168,7 @@
 		<script src="<?=base_url('assets/js/bootstrap.min.js')?>"></script>
 		<script src="<?=base_url('../../assets/js/vendor/holder.min.js')?>"></script>
 		<script src="<?=base_url('assets/js/ie10-viewport-bug-workaround.js')?>"></script>
+
 
 	</body>
 </html>
