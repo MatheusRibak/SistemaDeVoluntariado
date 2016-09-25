@@ -68,16 +68,16 @@
 				<div class="col-sm-3 col-md-2 sidebar">
 					<ul class="nav nav-sidebar">
 						<li class="#">
-							<a href="<?=site_url('Painel_entidade/index')?>"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Home</span></a>
+							<a href="<?=site_url('Painel_entidade/index')?>"><i class="fa fa-home" aria-hidden="true"></i><span class=""> Home</span></a>
 						</li>
 						<li>
-							<a href="<?=site_url('Painel_entidade/carregarPerfil')?>"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Meu Perfil</span></a>
+							<a href="<?=site_url('Painel_entidade/carregarPerfil')?>"><i class="fa fa-user" aria-hidden="true"></i><span class=""> Meu Perfil</span></a>
 						</li>
 						<li class="active">
-							<a href="<?=site_url('Vaga/carregaMinhasVagas')?>"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Minhas Vagas</span></a>
+							<a href="<?=site_url('Vaga/carregaMinhasVagas')?>"><i class="fa fa-list-alt" aria-hidden="true"></i><span class=""> Minhas Vagas</span></a>
 						</li>
 						<li class="">
-							<a href="<?=site_url('Painel_entidade/carregarCadastroVaga')?>"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Cadastrar Nova Vaga</span></a>
+							<a href="<?=site_url('Painel_entidade/carregarCadastroVaga')?>"><i class="fa fa-user" aria-hidden="true"></i><span class=""> Cadastrar Nova Vaga</span></a>
 						</li>
 					</ul>
 
@@ -133,7 +133,7 @@
         							<?php echo $row->descricao;?>
         						</td>
         						<td>
-                      <a  href="<?= site_url('Vaga/finalizarVaga/' . $row->id_vaga . '/' . $row->id_entidade ) ?>"
+                      <a  href="<?= site_url('Vaga/finalizarVaga/' . $row->id_vaga) ?>"
                         class="btn btn-danger btn-sm "
                         onclick="return confirm('Têm certeza que deseja finalizar esta vaga?')">
                           <i class="fa fa-trash-o" aria-hidden="true"></i>   Finalizar Vaga

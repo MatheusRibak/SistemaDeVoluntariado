@@ -22,21 +22,23 @@ class Vaga extends MY_ControllerLogado {
   }
 
 
-	public function finalizarVaga($id_vaga, $id_entidade){
+	public function finalizarVaga($id_vaga){
+		$id_entidade = $this->session->userdata('id_entidade');
     $data = array();
     $data['ativo'] = 'NAO';
-		$status = 'Aguardando Resposta';
+		$status = 'Aguardando Reposta';
     $this->db->select('*');
+		$this->db->from('vaga_candidato');
     $this->db->where('id_entidade', $id_entidade);
     $this->db->where('id_vaga', $id_vaga);
     $this->db->where('status_vaga', $status);
-    $retorno = $this->db->get('vaga_candidato')->num_rows();
+    $retorno = $this->db->get()->num_rows();
     if ($retorno == 0) {
-			$this->Vaga_model->finalizarVaga($data, $id_vaga);
-	    redirect('Vaga/carregaMinhasVagas/?aviso=3');
+		$this->Vaga_model->finalizarVaga($data, $id_vaga);
+	  redirect('Vaga/carregaMinhasVagas/?aviso=3');
     }
     else {
-      redirect('Vaga/carregaMinhasVagas/?aviso=2');
+		redirect('Vaga/carregaMinhasVagas/?aviso=2');
     }
 	}
 
@@ -48,6 +50,19 @@ class Vaga extends MY_ControllerLogado {
     $this->Vaga_model->recadastrarVaga($data, $id_vaga);
     redirect('Vaga/carregaMinhasVagas/?aviso=1');
   }
+
+	public function aceitarCandidato($id_vaga, $id_voluntario){
+
+		$dados['status_vaga'] = 'Aceito';
+		$this->Vaga_model->aceitarOuRecusar($id_vaga, $id_voluntario, $dados);
+		redirect('Painel_entidade/index/?aviso=1');
+	}
+
+	public function recusarCandidato($id_vaga, $id_voluntario, $dados){
+		$dados['status_vaga'] = 'Recusada';
+		$this->Vaga_model->aceitarOuRecusar($id_vaga, $id_voluntario, $dados);
+		redirect('Painel_entidade/index/?aviso=2');
+	}
 
 
 

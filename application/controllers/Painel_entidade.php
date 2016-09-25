@@ -8,7 +8,10 @@ class Painel_entidade extends MY_ControllerLogado {
 
 		$id_entidade = $this->session->userdata('id_entidade');
 
-		$data = array("dadosEntidade" => $this->Entidade_model->getEntidade($id_entidade)->row());
+		$data = array("dadosEntidade" => $this->Entidade_model->getEntidade($id_entidade)->row(),
+		"dadosVagaAtuais" => $this->Vaga_model->vagaDaEntidade(),
+		"candidato" => $this->Vaga_model->getCandidato());
+
 
 		$this->load->view('home_entidade', $data);
 	}
@@ -36,9 +39,8 @@ class Painel_entidade extends MY_ControllerLogado {
 		$dados_vaga = array();
 
 		$this->Vaga_model->nome = $this->input->post('vaga_nome');
-		$this->Vaga_model->quantidade_pessoa = $this->input->post('vaga_quantidade_pessoa');
+		$this->Vaga_model->area = $this->input->post('vaga_area');
 		$this->Vaga_model->descricao = $this->input->post('vaga_descricao');
-		$this->Vaga_model->quantidade_vaga = $this->input->post('vaga_quantidade');
 		$this->Vaga_model->importancia = $this->input->post('vaga_importancia');
 		$this->Vaga_model->presencial = $this->input->post('vaga_presencial');
 		$this->Vaga_model->estado = $this->input->post('vaga_estado');
@@ -52,10 +54,10 @@ class Painel_entidade extends MY_ControllerLogado {
 		$this->form_validation->set_rules('vaga_descricao', 'Descrição da vaga', 'required|max_length[120]');
 		$this->form_validation->set_rules('vaga_importancia', 'Importancia da vaga', 'required|max_length[120]');
 		$this->form_validation->set_rules('vaga_presencial', 'Informar se a vaga é presencial', 'required|max_length[120]');
-		$this->form_validation->set_rules('vaga_quantidade_pessoa', 'Informar a quantidade de pessoas', 'required|max_length[5]');
-	//	$this->form_validation->set_rules('vaga_estado', 'Estado', 'required|max_length[120]');
-	//	$this->form_validation->set_rules('vaga_cidade', 'Cidade', 'required|max_length[120]');
-	//	$this->form_validation->set_rules('vaga_data_validade', 'Data de Validade', 'required|max_length[120]');
+		$this->form_validation->set_rules('vaga_area', 'Informar a área para a vaga', 'required|max_length[120]');
+		$this->form_validation->set_rules('vaga_estado', 'Estado', 'required|max_length[120]');
+		$this->form_validation->set_rules('vaga_cidade', 'Cidade', 'required|max_length[120]');
+		$this->form_validation->set_rules('vaga_data_validade', 'Data de Validade', 'required|max_length[120]');
 
 		if ($this->form_validation->run() == FALSE) {
 			$this->carregarCadastroVaga();
@@ -74,7 +76,6 @@ class Painel_entidade extends MY_ControllerLogado {
 	function Atualizar() {
 
 		$data = array();
-		$data['senha'] = md5($this->input->post('senha'));
 		$data['nome'] = $this ->input->post('nome');
 		$data['telefone'] = $this->input->post('telefone');
 		$data['email'] = $this->input->post('email');
@@ -86,12 +87,33 @@ class Painel_entidade extends MY_ControllerLogado {
 		$data['uf'] = $this->input->post('uf');
 		$data['cep'] = $this->input->post('cep');
 
-		$this->Entidade_model->alterar($data);
+		$senha = $this->input->post('senha');
+
+
+		if($senha == ''){
 
 		$id_entidade = $this->session->userdata('id_entidade');
-		$dados2 = array("dadosEntidade" => $this->Entidade_model->getEntidade($id_entidade)->row());
-		$this->load->view('perfil_entidade', $dados2);
+		$this->Entidade_model->alterar($data);
+			redirect('Painel_entidade/carregarPerfil/?aviso=1');
+		} else {
 
+		$data['senha'] = md5($this->input->post('senha'));
+		$id_entidade = $this->session->userdata('id_entidade');
+
+		$this->Entidade_model->alterar($data);
+		redirect('Painel_entidade/carregarPerfil/?aviso=1');
+
+	}
+
+	}
+
+	public function verCandidato($id_voluntario, $id_vaga){
+		$id_entidade = $this->session->userdata('id_entidade');
+		$data = array("dadosEntidade" => $this->Entidade_model->getEntidade($id_entidade)->row(),
+		"dadosVoluntario" => $this->Vaga_model->getCandidatoSozinho($id_voluntario),
+		"dadosVagaAtuais" => $this->Vaga_model->vagaSozinha($id_vaga, $id_voluntario),
+		"candidato" => $this->Vaga_model->getCandidato());
+		$this->load->view('ver_candidato', $data);
 	}
 
 

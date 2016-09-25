@@ -11,7 +11,7 @@
 		<script type="text/javascript" src="<?=base_url('assets/js/bootstrap.js')?>"></script>
 		<script type="text/javascript" src="<?=base_url('assets/js/npm.js')?>"></script>
 		<link href="<?=base_url('assets/css/main.css')?>" rel="stylesheet" />
-
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
 		<script type="text/javascript" src="<?=base_url('assets/js/jquery.min.js')?>"></script>
 		<script type="text/javascript" src="<?=base_url('assets/js/bootstrap.js')?>"></script>
 		<script type="text/javascript" src="<?=base_url('assets/js/holder.min.js')?>"></script>
@@ -89,16 +89,16 @@
 				<div class="col-sm-3 col-md-2 sidebar">
 					<ul class="nav nav-sidebar">
 						<li class="">
-							<a href="<?=site_url('Painel_entidade/index')?>"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Home</span></a>
+							<a href="<?=site_url('Painel_entidade/index')?>"><i class="fa fa-home" aria-hidden="true"></i><span class=""> Home</span></a>
 						</li>
 						<li class="">
-							<a href="<?=site_url('Painel_entidade/carregarPerfil')?>"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Meu Perfil</span></a>
+							<a href="<?=site_url('Painel_entidade/carregarPerfil')?>"><i class="fa fa-user" aria-hidden="true"></i><span class=""> Meu Perfil</span></a>
 						</li>
 						<li>
-							<a href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Minhas Vagas</span></a>
+							<a href="<?=site_url('Vaga/carregaMinhasVagas')?>"><i class="fa fa-list-alt" aria-hidden="true"></i><span class=""> Minhas Vagas</span></a>
 						</li>
 						<li class="active">
-							<a href="<?=site_url('Painel_entidade/carregarCadastroVaga')?>"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Cadastrar Nova Vaga</span></a>
+							<a href="<?=site_url('Painel_entidade/carregarCadastroVaga')?>"><i class="fa fa-plus"  aria-hidden="true"></i><span class=""> Cadastrar Nova Vaga</span></a>
 						</li>
 					</ul>
 
@@ -114,7 +114,7 @@
 					<?php } ?>
 
 					<div class="row">
-						<div class="col-md-12 col-sm-5 col-xs-12 ">
+						<div class="col-md-12 col-sm-12 col-xs-12 ">
 
 							<div class="sales ">
 								<!-- -->
@@ -130,30 +130,12 @@
 											value="" placeholder="Nome da Vaga" required/>
 										</div>
 									</div>
-									<div class="form-group">
-										<label class="col-sm-2"> Voluntários
-											<br>
-											necessários </label>
-										<div class="col-sm-9">
-											<input type="number" class="form-control"
-											name="vaga_quantidade_pessoa" value=""
-											placeholder="Quantidade de valuntários que vão ser necessários" required/>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-sm-2"> Quantidade
-											<br>
-											de vaga </label>
-										<div class="col-sm-9">
-											<input type="number" class="form-control"
-											name="vaga_quantidade" value=""
-											placeholder="Quantidade de vagas que serão abertas" required/>
-										</div>
-									</div>
+
+
 									<div class="form-group">
 										<label class="col-sm-2">Urgência</label>
 										<div class="col-xs-12 col-sm-9">
-											<select class="col-xs-12 col-sm-12" name="urgencia"
+											<select class="col-xs-12 col-sm-12 form-control" name="urgencia"
 											onchange="trocaUrgencia()" id="listaUrgencia">
 												<option value="option">Por favor selecione a
 													urgência da vaga</option>
@@ -169,7 +151,7 @@
 									<div class="form-group">
 										<label class="col-sm-2">Vaga presencial</label>
 										<div class="col-sm-9">
-											<select class="col-xs-12 col-sm-12" name="presencial"
+											<select class="col-xs-12 col-sm-12 form-control" name="presencial"
 											onchange="trocaPresencial()" id="presencial">
 												<option value="option">Por favor selecione a
 													modalidade</option>
@@ -178,6 +160,17 @@
 											</select>
 											<input type="hidden" id="vaga_presencial"
 											name="vaga_presencial" value="" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-sm-2">Area de Atuação</label>
+										<div class="col-sm-9">
+											<select class="col-xs-12 col-sm-12 form-control" name="vaga_area">
+
+												<option value="ONG optou por não informar">Não desejo informar</option>
+
+											</select>
 										</div>
 									</div>
 
@@ -219,7 +212,7 @@
 									</div>
 
 									<div class="form-group">
-										<label class="col-sm-2"> Data de Validade</label>
+										<label class="col-sm-2"> Data Em que a Vaga vai acontecer</label>
 										<div class="col-sm-9">
 
 											<input type="text" name="vaga_data_validade" class="form-control data" value="">
@@ -230,9 +223,12 @@
 									<div class="form-group">
 
 										<label class="col-sm-2"></label>
-										<button type="submit" class="btn btn-primary">
-											CADASTRAR VAGA <span class="glyphicon glyphicon-ok"></span>
-										</button>
+										<div class="col-sm-9">
+											<button type="submit" class="btn btn-primary">
+												CADASTRAR VAGA <span class="glyphicon glyphicon-ok"></span>
+											</button>
+										</div>
+
 									</div>
 
 								</form>

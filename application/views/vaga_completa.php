@@ -112,28 +112,21 @@
   </div>
   <div class="col-md-6">
     <div class="form-group">
-      <label>Quantidade de Voluntários</label>
+      <label>Data de Atuação</label>
 
-      <input type="text" class="form-control" name="quantidade_pessoa" placeholder="" value="<?php echo $row->quantidade_pessoa ?>" disabled="" />
-
-    </div>
-  </div>
-  <div class="col-md-6">
-    <div class="form-group">
-      <label>Importancia da Vaga</label>
-
-      <input type="text" class="form-control" name="importancia" placeholder="" value="<?php echo $row->importancia ?>" disabled=""/>
+      <input type="text" class="form-control" name="data" placeholder="" value="<?php echo $row->data_validade ?>" disabled=""/>
 
     </div>
   </div>
   <div class="col-md-6">
     <div class="form-group">
-      <label>Quantidade de Vagas</label>
+      <label>Area</label>
 
-      <input type="text" class="form-control" name="quantidade_vaga" placeholder="" value="<?php echo $row->quantidade_vaga ?>" disabled=""/>
+      <input type="text" class="form-control" name="area" placeholder="" value="<?php echo $row->area?>" disabled=""/>
 
     </div>
   </div>
+
   <div class="col-md-12">
     <div class="form-group">
       <label>Descrição</label>

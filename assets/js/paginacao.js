@@ -122,3 +122,8 @@ $(document).ready(function(){
   $('#myTable3').pageMe({pagerSelector:'#myPager3',showPrevNext:true,hidePageNumbers:false,perPage:6});
 
 });
+$(document).ready(function(){
+
+  $('#myTable4').pageMe({pagerSelector:'#myPager4',showPrevNext:true,hidePageNumbers:false,perPage:6});
+
+});

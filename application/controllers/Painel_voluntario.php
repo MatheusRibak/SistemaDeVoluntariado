@@ -9,7 +9,8 @@ class Painel_voluntario extends MY_ControllerLogado {
 		$id_voluntario = $this->session->userdata('id_voluntario');
 
 		$data = array("dadosVoluntario" => $this->Voluntario_model->getVoluntario($id_voluntario)->row(),
-		"minhasVagas" => $this->Candidato_model->minhasVagasAtuais());
+		"minhasVagas" => $this->Candidato_model->minhasVagasAtuais(),
+		"vagasFinalizadas" =>$this->Candidato_model->minhasVagasFinalizadas());
 
 		$this->load->view('home_voluntario', $data);
 	}
@@ -175,6 +176,14 @@ class Painel_voluntario extends MY_ControllerLogado {
 
 				}
 }
+
+		public function carregaHistoricoDeVagas(){
+			$id_voluntario = $this->session->userdata('id_voluntario');
+			$data = array("dadosVoluntario" => $this->Voluntario_model->getVoluntario($id_voluntario)->row(),
+			"vagasAceitas" => $this->Candidato_model->minhasVagasAceitas(),
+			"vagasRecusadas" => $this->Candidato_model->minhasVagasRecusadas());
+			$this->load->view('historico_vagas', $data);
+		}
 
 
 

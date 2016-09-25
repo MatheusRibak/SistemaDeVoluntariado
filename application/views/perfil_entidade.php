@@ -11,7 +11,7 @@
 		<script type="text/javascript" src="<?=base_url('assets/js/bootstrap.js')?>"></script>
 		<script type="text/javascript" src="<?=base_url('assets/js/npm.js')?>"></script>
 		<link href="<?=base_url('assets/css/main.css')?>" rel="stylesheet" />
-
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
 		<script type="text/javascript" src="<?=base_url('assets/js/jquery.min.js')?>"></script>
 		<script type="text/javascript" src="<?=base_url('assets/js/bootstrap.js')?>"></script>
 		<script type="text/javascript" src="<?=base_url('assets/js/holder.min.js')?>"></script>
@@ -67,24 +67,32 @@
 				<div class="col-sm-3 col-md-2 sidebar">
 					<ul class="nav nav-sidebar">
 						<li class="">
-							<a href="<?=site_url('Painel_entidade/index')?>"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Home</span></a>
+							<a href="<?=site_url('Painel_entidade/index')?>"><i class="fa fa-home" aria-hidden="true"></i><span class=""> Home</span></a>
 						</li>
 						<li class="active">
-							<a href="<?=site_url('Painel_entidade/carregarPerfil')?>"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Meu Perfil</span></a>
+							<a href="<?=site_url('Painel_entidade/carregarPerfil')?>"><i class="fa fa-user" aria-hidden="true"></i><span class=""> Meu Perfil</span></a>
 						</li>
 						<li>
-							<a href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Minhas Vagas</span></a>
+							<a href="<?=site_url('Vaga/carregaMinhasVagas')?>"><i class="fa fa-list-alt" aria-hidden="true"></i><span class=""> Minhas Vagas</span></a>
 						</li>
 						<li class="">
-							<a href="<?=site_url('Painel_entidade/carregarCadastroVaga')?>"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Cadastrar Nova Vaga</span></a>
+							<a href="<?=site_url('Painel_entidade/carregarCadastroVaga')?>"><i class="fa fa-plus"  aria-hidden="true"></i><span class=""> Cadastrar Nova Vaga</span></a>
 						</li>
 					</ul>
 
 				</div>
 				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+					<div class="col-sm-12">
+						<?php if ($this->input->get('aviso') == 1) { ?>
+						<div class="alert alert-success">
+							Dados atualizados com sucesso!!!
+						</div>
+						<?php } ?>
+
+					</div>
 					<h1 class="page-header">Meu Perfil</h1>
 					<div class="row">
-						<div class="col-md-12 col-sm-5 col-xs-12 ">
+						<div class="col-md-12 col-sm-12 col-xs-12 ">
 
 							<div class="sales">
 								<!-- -->
@@ -116,8 +124,8 @@
 											<div class="form-group">
 												<label>Senha</label>
 												<input type="password" class="form-control"
-												name="senha" placeholder="senha"
-												value="<?php echo $dadosEntidade->senha ?>" required/>
+												name="senha" placeholder="Senha"
+												/>
 											</div>
 										</div>
 										<div class="form-group col-md-6">

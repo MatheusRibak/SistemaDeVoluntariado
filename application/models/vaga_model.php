@@ -4,9 +4,8 @@ class Vaga_model extends CI_Model {
 
     public  $id_vaga;
     public  $nome;
-  	public  $quantidade_pessoa;
+  	public  $area;
   	public  $descricao;
-  	public  $quantidade_vaga;
   	public  $importancia;
   	public  $presencial;
   	public  $estado;
@@ -27,8 +26,8 @@ class Vaga_model extends CI_Model {
 
    $ativo = 'SIM';
 	 $this->db
-   ->select("*")
-   ->from("vaga")
+   ->select('*')
+   ->from('vaga')
    ->like('nome', $teste)
    ->where('ativo', $ativo);
 
@@ -51,14 +50,13 @@ class Vaga_model extends CI_Model {
     $id_entidade = $this->session->userdata('id_entidade');
     $ativo = 'SIM';
     $this->db
-    ->select("*")
-    ->from("vaga")
+    ->select('*')
+    ->from('vaga')
     ->where('id_entidade', $id_entidade)
     ->where('ativo', $ativo);
 
     return $qr = $this->db->get()->result();
-
- }
+  }
 
   public  function getVagaEntidadeFinalizada() {
      $id_entidade = $this->session->userdata('id_entidade');
@@ -87,6 +85,73 @@ class Vaga_model extends CI_Model {
         $this->db->set($data);
         return $this->db->update('vaga');
       }
+
+    public function vagaDaEntidade(){
+      $status = 'Aguardando Reposta';
+      $id_entidade = $this->session->userdata('id_entidade');
+      $this->db
+      ->select("*")
+      ->from("vaga")
+      ->join('vaga_candidato', 'vaga.id_vaga = vaga_candidato.id_vaga')
+      ->where('status_vaga', $status);
+
+
+      return $query = $this->db->get()->result();
+    }
+
+    public function getCandidato(){
+
+      $status = 'Aguardando Reposta';
+      $this->db
+      ->select("*")
+      ->from("vaga")
+      ->join('vaga_candidato', 'vaga.id_vaga = vaga_candidato.id_vaga')
+      ->where('status_vaga', $status);
+
+
+      $query = $this->db->get()->result();
+
+      foreach ($query as $row) {
+         $this->db->select("*")
+         ->from("vaga_candidato")
+         ->where("id_vaga", $row->id_vaga);
+
+        $resultado =  $this->db->get()->result();
+
+        foreach ($resultado as $key) {
+          $this->db->select("*")
+          ->from("voluntario")
+          ->where("id_voluntario", $row->id_voluntario);
+
+          return $this->db->get()->result();
+        }
+      }
+    }
+
+    public function getCandidatoSozinho($id_voluntario){
+      $this->db->select("*")
+      ->from("voluntario")
+      ->where("id_voluntario", $id_voluntario);
+
+      return $this->db->get()->result();
+    }
+
+    public function vagaSozinha($id_vaga, $id_voluntario){
+      $this->db->select("*")
+      ->from("vaga_candidato")
+      ->where("id_vaga", $id_vaga)
+      ->where('id_voluntario', $id_voluntario);
+        return $this->db->get()->result();
+    }
+
+    public function aceitarOuRecusar($id_vaga, $id_voluntario, $dados){
+      $id_entidade = $this->session->userdata('id_entidade');
+      $this->db->where('id_voluntario', $id_voluntario);
+      $this->db->where('id_vaga', $id_vaga);
+      $this->db->where('id_entidade', $id_entidade);
+      $this->db->set($dados);
+      return $this->db->update('vaga_candidato');
+    }
 
 
 
