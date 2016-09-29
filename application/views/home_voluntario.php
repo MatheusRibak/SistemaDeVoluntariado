@@ -75,6 +75,9 @@
 							<a href="<?=site_url('Painel_voluntario/carregaFormularioBusca')?>"><i class="fa fa-search" aria-hidden="true"></i><span class=""> Procurar Vaga</span></a>
 						</li>
 						<li>
+							<a href="<?=site_url('Painel_voluntario/carregaVagaPorArea')?>"><i class="fa fa-search" aria-hidden="true"></i><span class=""> Vaga Por Área</span></a>
+						</li>
+						<li>
 							<a href="<?=site_url('Painel_voluntario/carregaHistoricoDeVagas')?>"><i class="fa fa-search" aria-hidden="true"></i><span class=""> Historico de Vagas</span></a>
 						</li>
 
@@ -139,7 +142,7 @@
 							<?php echo $row->status_vaga;?>
 						</td>
 						<td>
-							<a  href="<?= site_url('Painel_voluntario/excluir/' . $row->id_vaga . '/' . $row->id_voluntario ) ?>"
+							<a  href="<?= site_url('Painel_voluntario/excluirNaoaceita/' . $row->id_vaga . '/' . $row->id_voluntario ) ?>"
 								class="btn btn-danger btn-sm"
 								onclick="return confirm('Têm certeza que deseja excluir esta informação?')">
 									<i class="fa fa-trash-o" aria-hidden="true"></i>   Excluir Candidatura

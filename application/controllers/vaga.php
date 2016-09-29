@@ -64,6 +64,15 @@ class Vaga extends MY_ControllerLogado {
 		redirect('Painel_entidade/index/?aviso=2');
 	}
 
+	public function verAceita($id_vaga, $id_entidade){
+		$id_voluntario = $this->session->userdata('id_voluntario');
+		$data = array("dadosVoluntario" => $this->Voluntario_model->getVoluntario($id_voluntario)->row(),
+		"dadosVaga" => $this->Vaga_model->getVagaSozinha($id_vaga),
+		"dadosEntidade" => $this->Entidade_model->getEntidadeSozinho($id_entidade));
+
+		$this->load->view('ver_aceita',$data);
+	}
+
 
 
 

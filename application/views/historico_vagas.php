@@ -138,11 +138,16 @@
 						<td>
 							<?php echo $row->status_vaga;?>
 						</td>
+
 						<td>
 							<a  href="<?= site_url('Painel_voluntario/excluir/' . $row->id_vaga . '/' . $row->id_voluntario ) ?>"
 								class="btn btn-danger btn-sm"
 								onclick="return confirm('Têm certeza que deseja excluir esta informação?')">
 									<i class="fa fa-trash-o" aria-hidden="true"></i>   Não vou conseguir ir
+							</a>
+							<a  href="<?= site_url('Vaga/verAceita/' . $row->id_vaga . '/' . $row->id_entidade) ?>"
+								class="btn btn-info btn-sm">
+									<i class="fa fa-trash-o" aria-hidden="true"></i>   Ver Detalhes
 							</a>
 						</td>
 
@@ -176,7 +181,7 @@
 							</div>
 
 
-              
+
 
               <div class="sales">
 

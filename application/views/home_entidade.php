@@ -164,6 +164,69 @@
 											</div>
 											</div>
 
+											<div class="sales">
+
+
+															<!-- -->
+
+
+
+
+
+																		<div class="form-group col-sm-12">
+																							<span><h3>Meus Voluntários</h3></span>
+																			<div class="table-responsive">
+											<table class="table">
+											<thead>
+													<tr>
+															<th>Vaga</th>
+															<th>Voluntário</th>
+															<th>Opções</th>
+													</tr>
+											</thead>
+											<tbody id="myTable">
+											<?php if (!empty($dadosVagaAtuais)):
+												 foreach ($dadosVagaAtuais as $row): ?>
+																	<td>
+																		<?php echo $row->nome;?>
+																	</td>
+																	<td>
+																		<?php foreach ($candidato as $key): ?>
+																			<?php echo $key->nome;?>
+
+
+																	</td>
+																	<td>
+																		<a  href="<?= site_url('Historico/cadastrarHistorico/' . $row->id_voluntario) ?>"
+																			class="btn btn-info btn-sm">
+																				<i class="fa fa-eye" aria-hidden="true"></i>   Feedback
+																		</a>
+																	</td>
+
+														</tr>
+														<?php endforeach; ?>
+																	<?php endforeach; ?>
+																<?php else: {
+																	echo "<td colspan='5' align = 'center'>
+																Você não possui nenhum candidato aceito até o momento...
+																						</td>";
+																} ?>
+																<?php	endif; ?>
+											</tbody>
+
+											</table>
+											<div class="text-center">
+											<ul class="pagination pagination-lg pager" id="myPager"></ul>
+											</div>
+
+											</div>
+
+
+
+																		</div>
+																		</div>
+
+
 
 
 

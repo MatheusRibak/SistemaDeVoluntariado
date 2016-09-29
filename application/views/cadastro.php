@@ -55,7 +55,7 @@
 						</li>
 
 						<li>
-							<a data-toggle="modal" href="<?=base_url('cadastro')?>"> <i class="fa fa-plus" aria-hidden="true"></i> Cadastrar</a>
+							<a data-toggle="modal" href="<?=site_url('cadastro')?>"> <i class="fa fa-plus" aria-hidden="true"></i> Cadastrar</a>
 						</li>
 
 					</ul>
@@ -199,6 +199,48 @@
 										<input type="password"
 										id="senhaVoluntario" name="voluntario_senha"
 										value="" class="form-control" required  />
+									</div>
+
+									<h3>Informe 2 áreas de interesse</h3>
+									<div class="form-group">
+										<label for="senhaVoluntario">Área 1</label>
+									<select class="form-control" name="atuacao_um">
+										<option value="ONG optou por não informar">Não desejo informar</option>
+										<option value="Animais">Animais</option>
+										<option value="Crianças">Crianças</option>
+										<option value="Idosos">Idosos</option>
+										<option value="Educação">Educação</option>
+										<option value="Meio Ambiente">Meio Ambiente</option>
+										<option value="Computação">Computação</option>
+										<option value="Politica">Politica</option>
+										<option value="Pessoas com necessidades Especiais">Pessoas com necessidades Especiais</option>
+										<option value="Comunidade LGBT">Comunidade LGBT</option>
+										<option value="Esporte">Esportes</option>
+										<option value="Religiões">Religiões</option>
+										<option value="Saúde">Saúde</option>
+										<option value="Reformas">Reformas</option>
+										<option value="Outras Áreas">Outros</option>
+									</select>
+									</div>
+									<div class="form-group">
+										<label for="senhaVoluntario">Área 2</label>
+									<select class="form-control" name="atuacao_dois">
+										<option value="ONG optou por não informar">Não desejo informar</option>
+										<option value="Animais">Animais</option>
+										<option value="Crianças">Crianças</option>
+										<option value="Idosos">Idosos</option>
+										<option value="Educação">Educação</option>
+										<option value="Meio Ambiente">Meio Ambiente</option>
+										<option value="Computação">Computação</option>
+										<option value="Politica">Politica</option>
+										<option value="Pessoas com necessidades Especiais">Pessoas com necessidades Especiais</option>
+										<option value="Comunidade LGBT">Comunidade LGBT</option>
+										<option value="Esporte">Esportes</option>
+										<option value="Religiões">Religiões</option>
+										<option value="Saúde">Saúde</option>
+										<option value="Reformas">Reformas</option>
+										<option value="Outras Áreas">Outros</option>
+									</select>
 									</div>
 									<button type="submit" class="btn btn-primary">
 										CADASTRAR <span class="glyphicon glyphicon-ok"></span>

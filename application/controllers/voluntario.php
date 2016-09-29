@@ -24,10 +24,12 @@ class Voluntario extends CI_Controller {
 		} else {
 
 			$this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
-			$this->form_validation->set_rules('voluntario_nome', 'Nome', 'required|max_length[120]');
-			$this->form_validation->set_rules('voluntario_telefone', 'Telefone', 'required|max_length[120]');
+			$this->form_validation->set_rules('voluntario_nome', 'Nome', 'required|max_length[100]');
+			$this->form_validation->set_rules('voluntario_telefone', 'Telefone', 'required|max_length[15]');
 			$this->form_validation->set_rules('voluntario_email', 'E-mail', 'required|max_length[120]|valid_email');
-			$this->form_validation->set_rules('voluntario_senha', 'Senha', 'required|max_length[120]');
+			$this->form_validation->set_rules('voluntario_senha', 'Senha', 'required|max_length[100]');
+			$this->form_validation->set_rules('atuacao_um', 'Área um', 'required|max_length[100]');
+			$this->form_validation->set_rules('atuacao_dois', 'Área Dois', 'required|max_length[100]');
 
 			if ($this->form_validation->run() == FALSE) {
 				$this->index();
@@ -37,6 +39,8 @@ class Voluntario extends CI_Controller {
 				$this->Voluntario_model->telefone = $this->input->post('voluntario_telefone');
 				$this->Voluntario_model->email = $this->input->post('voluntario_email');
 				$this->Voluntario_model->senha = md5($this->input->post('voluntario_senha'));
+				$this->Voluntario_model->atuacao_um = $this->input->post('atuacao_um');
+				$this->Voluntario_model->atuacao_dois = $this->input->post('atuacao_dois');
 
 				$this->Voluntario_model->Salvar();
 

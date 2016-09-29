@@ -169,7 +169,20 @@
 											<select class="col-xs-12 col-sm-12 form-control" name="vaga_area">
 
 												<option value="ONG optou por não informar">Não desejo informar</option>
-
+												<option value="Animais">Animais</option>
+												<option value="Crianças">Crianças</option>
+												<option value="Idosos">Idosos</option>
+												<option value="Educação">Educação</option>
+												<option value="Meio Ambiente">Meio Ambiente</option>
+												<option value="Computação">Computação</option>
+												<option value="Politica">Politica</option>
+												<option value="Pessoas com necessidades Especiais">Pessoas com necessidades Especiais</option>
+												<option value="Comunidade LGBT">Comunidade LGBT</option>
+												<option value="Esporte">Esportes</option>
+												<option value="Religiões">Religiões</option>
+												<option value="Saúde">Saúde</option>
+												<option value="Reformas">Reformas</option>
+												<option value="Outras Áreas">Outros</option>
 											</select>
 										</div>
 									</div>

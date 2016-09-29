@@ -7,6 +7,8 @@ class Voluntario_model extends CI_Model {
 	public $email;
 	public $telefone;
 	public $senha;
+	public $atuacao_um;
+	public $atuacao_dois;
 
 	function __construct() {
 		parent::__construct();

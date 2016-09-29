@@ -119,11 +119,13 @@ class Painel_voluntario extends MY_ControllerLogado {
 		$id_voluntario = $this->session->userdata('id_voluntario');
 
 		$id_vaga =  $this->input->post('id_vaga');
+		$aguardando = "Aguardando Reposta";
 		$this->db
 						->select("*")
 						->from("vaga_candidato")
 						->where("id_voluntario", $id_voluntario)
-						->where("id_vaga", $id_vaga);
+						->where("id_vaga", $id_vaga)
+						->where("status_vaga", $aguardando);
 
 		$dadosCandidato = $this->db->get();
 
@@ -177,12 +179,26 @@ class Painel_voluntario extends MY_ControllerLogado {
 				}
 }
 
+public function excluirNaoaceita($id_vaga, $id_voluntario){
+
+		$id_voluntario = $this->session->userdata('id_voluntario');
+
+			$data = array(
+					"excluir" => $this->Candidato_model->excluir($id_academico, $id_vaga)
+			);
+			redirect('Painel_voluntario/index/?aviso=3');
+}
+
 		public function carregaHistoricoDeVagas(){
 			$id_voluntario = $this->session->userdata('id_voluntario');
 			$data = array("dadosVoluntario" => $this->Voluntario_model->getVoluntario($id_voluntario)->row(),
 			"vagasAceitas" => $this->Candidato_model->minhasVagasAceitas(),
 			"vagasRecusadas" => $this->Candidato_model->minhasVagasRecusadas());
 			$this->load->view('historico_vagas', $data);
+		}
+
+		public function carregaVagaPorArea(){
+			$this->load->view('busca_por_area');
 		}
 
 
