@@ -12,7 +12,7 @@ class Painel_entidade extends MY_ControllerLogado {
 		"dadosVagaAtuais" => $this->Vaga_model->vagaDaEntidade(),
 		"candidato" => $this->Vaga_model->getCandidato());
 
-
+		$this->load->view('cabecalho_entidade', $data);
 		$this->load->view('home_entidade', $data);
 	}
 
@@ -25,12 +25,14 @@ class Painel_entidade extends MY_ControllerLogado {
 	public function carregarPerfil() {
 		$id_entidade = $this->session->userdata('id_entidade');
 		$data = array("dadosEntidade" => $this->Entidade_model->getEntidade($id_entidade)->row());
+		$this->load->view('cabecalho_entidade', $data);
 		$this->load->view('perfil_entidade', $data);
 	}
 
 	public function carregarCadastroVaga() {
 		$id_entidade = $this->session->userdata('id_entidade');
 		$data = array("dadosEntidade" => $this->Entidade_model->getEntidade($id_entidade)->row());
+		$this->load->view('cabecalho_entidade', $data);
 		$this->load->view('cadastro_vaga', $data);
 	}
 
@@ -51,7 +53,7 @@ class Painel_entidade extends MY_ControllerLogado {
 
 		$this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
 		$this->form_validation->set_rules('vaga_nome', 'Nome', 'required|max_length[120]');
-		$this->form_validation->set_rules('vaga_descricao', 'Descrição da vaga', 'required|max_length[120]');
+		$this->form_validation->set_rules('vaga_descricao', 'Descrição da vaga', 'required|max_length[1200]');
 		$this->form_validation->set_rules('vaga_importancia', 'Importancia da vaga', 'required|max_length[120]');
 		$this->form_validation->set_rules('vaga_presencial', 'Informar se a vaga é presencial', 'required|max_length[120]');
 		$this->form_validation->set_rules('vaga_area', 'Informar a área para a vaga', 'required|max_length[120]');
@@ -113,6 +115,7 @@ class Painel_entidade extends MY_ControllerLogado {
 		"dadosVoluntario" => $this->Vaga_model->getCandidatoSozinho($id_voluntario),
 		"dadosVagaAtuais" => $this->Vaga_model->vagaSozinha($id_vaga, $id_voluntario),
 		"candidato" => $this->Vaga_model->getCandidato());
+		$this->load->view('cabecalho_entidade', $data);
 		$this->load->view('ver_candidato', $data);
 	}
 

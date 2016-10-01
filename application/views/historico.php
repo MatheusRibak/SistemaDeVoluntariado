@@ -114,6 +114,13 @@
 
 
 
+												<input type="hidden" name="id_voluntario" value="	<?php echo $dadosVoluntario->id_voluntario ?>">
+
+												<?php foreach ($dadosVaga as $key): ?>
+													<input type="hidden" name="id_vaga" value="<?php echo $key->id_vaga ?>">
+												<?php endforeach; ?>
+
+
 											</div>
 										</div>
 
