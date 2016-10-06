@@ -203,8 +203,13 @@ public function excluirNaoaceita($id_vaga, $id_voluntario){
 		}
 
 		public function carregaVagaPorArea(){
-			//$this->load->view('cabecalho_voluntario', $data);
-			$this->load->view('busca_por_area');
+
+			$id_voluntario = $this->session->userdata('id_voluntario');
+			$data = array("dadosVoluntario" => $this->Voluntario_model->getVoluntario($id_voluntario)->row(),
+			"vagaPorAreaUm" => $this->Vaga_model->getPorAreaUm(),
+			"vagaPorAreaDois" =>$this->Vaga_model->getPorAreaDois());
+			$this->load->view('cabecalho_voluntario', $data);
+			$this->load->view('busca_por_area', $data);
 		}
 
 

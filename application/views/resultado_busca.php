@@ -14,10 +14,10 @@
 							<a href="<?=site_url('Painel_voluntario/carregaFormularioBusca')?>"><i class="fa fa-search" aria-hidden="true"></i><span> Procurar Vaga</span></a>
 						</li>
 						<li>
-							<a href="<?=site_url('Painel_voluntario/carregaVagaPorArea')?>"><i class="fa fa-search" aria-hidden="true"></i><span class=""> Vaga Por Área</span></a>
+							<a href="<?=site_url('Painel_voluntario/carregaVagaPorArea')?>"><i class="fa fa-search-plus" aria-hidden="true"></i><span class=""> Vaga Por Área</span></a>
 						</li>
 						<li>
-							<a href="<?=site_url('Painel_voluntario/carregaHistoricoDeVagas')?>"><i class="fa fa-search" aria-hidden="true"></i><span class=""> Historico de Vagas</span></a>
+							<a href="<?=site_url('Painel_voluntario/carregaHistoricoDeVagas')?>"><i class="fa fa-list-alt" aria-hidden="true"></i><span class=""> Historico de Vagas</span></a>
 						</li>
 
 					</ul>

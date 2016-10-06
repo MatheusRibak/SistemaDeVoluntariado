@@ -10,8 +10,14 @@
 						<li class="">
 							<a href="<?=site_url('Painel_voluntario/carregaPerfilVoluntario')?>"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Meu Perfil</span></a>
 						</li>
-						<li class="active">
+						<li class="">
 							<a href="<?=site_url('Painel_voluntario/carregaFormularioBusca')?>"><i class="fa fa-search" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Procurar Vaga</span></a>
+						</li>
+						<li>
+							<a href="<?=site_url('Painel_voluntario/carregaVagaPorArea')?>"><i class="fa fa-search-plus" aria-hidden="true"></i><span class=""> Vaga Por Área</span></a>
+						</li>
+						<li class="active">
+							<a href="<?=site_url('Painel_voluntario/carregaHistoricoDeVagas')?>"><i class="fa fa-list-alt" aria-hidden="true"></i><span class=""> Historico de Vagas</span></a>
 						</li>
 
 					</ul>
@@ -22,7 +28,7 @@
 
 
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h2 class="page-header">Vaga Completa</h2>
+          <h2 class="page-header">Detalhes de sua vaga</h2>
           <div class="row">
             <div class="col-md-12 col-sm-5 col-xs-12 ">
 

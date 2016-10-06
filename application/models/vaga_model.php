@@ -153,6 +153,44 @@ class Vaga_model extends CI_Model {
       return $this->db->update('vaga_candidato');
     }
 
+    public function getPorAreaUm(){
+
+      $id_voluntario = $this->session->userdata('id_voluntario');
+
+      $this->db->select("*")
+      ->from("voluntario")
+      ->where("id_voluntario", $id_voluntario);
+
+      $resultado_area_um = $this->db->get()->row();
+
+      $this->db->select("*")
+      ->from("vaga")
+      ->where("area", $resultado_area_um->atuacao_um);
+
+      return $this->db->get()->result();
+
+
+    }
+
+    public function getPorAreaDois(){
+
+      $id_voluntario = $this->session->userdata('id_voluntario');
+
+      $this->db->select("*")
+      ->from("voluntario")
+      ->where("id_voluntario", $id_voluntario);
+
+      $resultado_area_um = $this->db->get()->row();
+
+      $this->db->select("*")
+      ->from("vaga")
+      ->where("area", $resultado_area_um->atuacao_dois);
+
+      return $this->db->get()->result();
+
+
+    }
+
 
 
 
