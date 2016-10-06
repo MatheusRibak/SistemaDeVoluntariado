@@ -24,7 +24,6 @@ class Candidato_model extends CI_Model {
 		->join('vaga_candidato', 'vaga.id_vaga = vaga_candidato.id_vaga')
 		->where('id_voluntario', $id_voluntario)
 		->where('status_vaga', $status);
-
 		return $query = $this->db->get()->result();
 	}
 
@@ -37,7 +36,6 @@ class Candidato_model extends CI_Model {
 		->join('vaga_candidato', 'vaga.id_vaga = vaga_candidato.id_vaga')
 		->where('id_voluntario', $id_voluntario)
 		->where('status_vaga', $status);
-
 		return $query = $this->db->get()->result();
 	}
 
@@ -50,7 +48,6 @@ class Candidato_model extends CI_Model {
 		->join('vaga_candidato', 'vaga.id_vaga = vaga_candidato.id_vaga')
 		->where('id_voluntario', $id_voluntario)
 		->where('status_vaga', $status);
-
 		return $query = $this->db->get()->result();
 	}
 
@@ -63,17 +60,15 @@ class Candidato_model extends CI_Model {
 		->join('vaga_candidato', 'vaga.id_vaga = vaga_candidato.id_vaga')
 		->where('id_voluntario', $id_voluntario)
 		->where('status_vaga', $status);
-
 		return $query = $this->db->get()->result();
 	}
 
 	public function excluir($id_voluntario, $id_vaga){
-	$id_voluntario = $this->session->userdata('id_voluntario');
-	$this->db->where('id_voluntario', $id_voluntario);
-	$this->db->where('id_vaga', $id_vaga);
-	$this->db->delete('vaga_candidato');
-
-}
+		$id_voluntario = $this->session->userdata('id_voluntario');
+		$this->db->where('id_voluntario', $id_voluntario);
+		$this->db->where('id_vaga', $id_vaga);
+		$this->db->delete('vaga_candidato');
+	}
 
 
 

@@ -68,9 +68,9 @@ class Voluntario extends CI_Controller {
 
 		//seleciona os dados na tabela de voluntario
 		$this->db->select("*")
-    ->from("voluntario")
-    ->where("email", $voluntario_email)
-    ->where("senha", md5($voluntario_senha));
+		->from("voluntario")
+		->where("email", $voluntario_email)
+		->where("senha", md5($voluntario_senha));
 
 		$dadosVoluntario = $this->db->get();
 

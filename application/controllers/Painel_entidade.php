@@ -19,7 +19,6 @@ class Painel_entidade extends MY_ControllerLogado {
 	function deslogar() {
 		$this->session->sess_destroy();
 		$this->load->view('home');
-
 	}
 
 	public function carregarPerfil() {
@@ -91,21 +90,19 @@ class Painel_entidade extends MY_ControllerLogado {
 
 		$senha = $this->input->post('senha');
 
-
 		if($senha == ''){
 
-		$id_entidade = $this->session->userdata('id_entidade');
-		$this->Entidade_model->alterar($data);
+			$id_entidade = $this->session->userdata('id_entidade');
+			$this->Entidade_model->alterar($data);
 			redirect('Painel_entidade/carregarPerfil/?aviso=1');
 		} else {
 
-		$data['senha'] = md5($this->input->post('senha'));
-		$id_entidade = $this->session->userdata('id_entidade');
+			$data['senha'] = md5($this->input->post('senha'));
+			$id_entidade = $this->session->userdata('id_entidade');
 
-		$this->Entidade_model->alterar($data);
-		redirect('Painel_entidade/carregarPerfil/?aviso=1');
-
-	}
+			$this->Entidade_model->alterar($data);
+			redirect('Painel_entidade/carregarPerfil/?aviso=1');
+		}
 
 	}
 

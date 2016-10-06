@@ -23,27 +23,21 @@ class Vaga_model extends CI_Model {
   }
 
   function getVagas($teste) {
-
     $ativo = 'SIM';
     $this->db
     ->select('*')
     ->from('vaga')
     ->like('nome', $teste)
     ->where('ativo', $ativo);
-
     return $qr = $this->db->get()->result();
-
   }
 
   function getVagaSozinha($id_vaga) {
-
     $this->db
     ->select("*")
     ->from("vaga")
     ->like('id_vaga', $id_vaga);
-
     return $query = $this->db->get()->result();
-
   }
 
   public  function getVagaEntidadeAtiva() {
@@ -54,7 +48,6 @@ class Vaga_model extends CI_Model {
     ->from('vaga')
     ->where('id_entidade', $id_entidade)
     ->where('ativo', $ativo);
-
     return $qr = $this->db->get()->result();
   }
 
@@ -66,7 +59,6 @@ class Vaga_model extends CI_Model {
     ->from("vaga")
     ->where('id_entidade', $id_entidade)
     ->where('ativo', $ativo);
-
     return $qr = $this->db->get()->result();
   }
 
@@ -94,20 +86,16 @@ class Vaga_model extends CI_Model {
     ->from("vaga")
     ->join('vaga_candidato', 'vaga.id_vaga = vaga_candidato.id_vaga')
     ->where('status_vaga', $status);
-
-
     return $query = $this->db->get()->result();
   }
 
   public function getCandidato(){
-
     $status = 'Aguardando Reposta';
     $this->db
     ->select("*")
     ->from("vaga")
     ->join('vaga_candidato', 'vaga.id_vaga = vaga_candidato.id_vaga')
     ->where('status_vaga', $status);
-
 
     $query = $this->db->get()->result();
 
@@ -132,7 +120,6 @@ class Vaga_model extends CI_Model {
     $this->db->select("*")
     ->from("voluntario")
     ->where("id_voluntario", $id_voluntario);
-
     return $this->db->get()->result();
   }
 
@@ -154,9 +141,7 @@ class Vaga_model extends CI_Model {
   }
 
   public function getPorAreaUm(){
-
     $id_voluntario = $this->session->userdata('id_voluntario');
-
     $this->db->select("*")
     ->from("voluntario")
     ->where("id_voluntario", $id_voluntario);
@@ -166,14 +151,10 @@ class Vaga_model extends CI_Model {
     $this->db->select("*")
     ->from("vaga")
     ->where("area", $resultado_area_um->atuacao_um);
-
     return $this->db->get()->result();
-
-
   }
 
   public function getPorAreaDois(){
-
     $id_voluntario = $this->session->userdata('id_voluntario');
 
     $this->db->select("*")
@@ -187,11 +168,6 @@ class Vaga_model extends CI_Model {
     ->where("area", $resultado_area_um->atuacao_dois);
 
     return $this->db->get()->result();
-
-
   }
-
-
-
 
 }

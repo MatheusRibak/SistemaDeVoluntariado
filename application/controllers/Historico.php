@@ -7,9 +7,7 @@ class Historico extends MY_ControllerLogado {
 	public function index() {
 
 		$id_entidade = $this->session->userdata('id_entidade');
-
 		$data = array("dadosEntidade" => $this->Entidade_model->getEntidade($id_entidade)->row());
-
 		$this->load->view('home_entidade', $data);
 	}
 
@@ -34,7 +32,6 @@ class Historico extends MY_ControllerLogado {
 		$this->Historico_model->id_voluntario =  $this->input->post('id_voluntario');
 		$this->Historico_model->historico = $this->input->post('historico');
 		$this->Historico_model->id_entidade = $this->session->userdata('id_entidade');
-
 		$this->Historico_model->Salvar($data);
 	}
 

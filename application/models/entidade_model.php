@@ -37,14 +37,11 @@ class Entidade_model extends CI_Model {
 	}
 
 	function getEntidadeSozinho($id_entidade) {
-
 		$this->db
 		->select("*")
 		->from("entidade")
 		->where('id_entidade', $id_entidade);
-
 		return $query2 = $this->db->get()->result();
-
-}
+	}
 
 }
