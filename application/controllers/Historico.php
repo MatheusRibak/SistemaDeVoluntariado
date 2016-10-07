@@ -24,6 +24,7 @@ class Historico extends MY_ControllerLogado {
 		"dadosVoluntario" => $this->Historico_model->getVoluntario($id_voluntario)->row(),
 		"dadosVaga" => $this->Vaga_model->getVagaSozinha($id_vaga));
 
+		$this->load->view('cabecalho_entidade', $data);
 		$this->load->view('historico', $data);
 	}
 
