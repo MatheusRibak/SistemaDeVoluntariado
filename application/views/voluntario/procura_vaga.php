@@ -5,7 +5,7 @@
   <div class="row">
 
     <div class="col-lg-12">
-      <h1 class="page-header">Tables</h1>
+      <h1 class="page-header">Procurar Vaga</h1>
     </div>
     <!-- /.col-lg-12 -->
   </div>
@@ -57,7 +57,7 @@
 
         <div class="panel panel-default">
           <div class="panel-heading">
-            Vagas Aceitas
+            Resultados de sua busca...
           </div>
           <div class="panel-body">
             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">

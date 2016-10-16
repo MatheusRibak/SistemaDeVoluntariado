@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>EuVoluntário - Entidade</title>
+	<title>EuVoluntário - Voluntário</title>
 	<link rel="stylesheet" href="<?=base_url('assets/css/bootstrap.css')?>"  >
 	<link rel="stylesheet" href="<?=base_url('assets/css/metisMenu.css')?>"  >
 	<link rel="stylesheet" href="<?=base_url('assets/css/morris.css')?>"  >
@@ -23,27 +23,6 @@
 	<script type="text/javascript" src="<?=base_url('assets/js/sb-admin-2.js')?>"></script>
 	<script type="text/javascript" src="<?=base_url('assets/js/metisMenu.js')?>"></script>
 
-	<script type="text/javascript">
-	function trocaUrgencia() {
-		var e = document.getElementById("listaUrgencia");
-		var strUrgencia = e.options[e.selectedIndex].text;
-		document.getElementById("vaga_importancia").value = strUrgencia;
-	}
-
-	function trocaCidade() {
-		var e = document.getElementById("cidade");
-		document.getElementById("vaga_cidade").value = e.options[e.selectedIndex].text;
-
-		var f = document.getElementById("estado");
-		document.getElementById("vaga_estado").value = f.options[f.selectedIndex].text;
-	}
-
-	function trocaPresencial() {
-		var e = document.getElementById("presencial");
-		document.getElementById("vaga_presencial").value = e.options[e.selectedIndex].text;
-	}
-
-	</script>
 
 </head>
 
@@ -60,7 +39,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="index.html">SB Admin v2.0</a>
+			<a class="navbar-brand" href="<?=site_url('Painel_voluntario/index')?>">Eu Voluntário</a>
 		</div>
 		<!-- /.navbar-header -->
 
@@ -71,7 +50,7 @@
 			<!-- /.dropdown -->
 			<li class="dropdown">
 
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span> <?php echo $dadosEntidade->nome ?></span> <span class="caret"></span> </a>
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span> <?php echo $dadosVoluntario->nome ?></span> <span class="caret"></span> </a>
 
 				<ul class="dropdown-menu" role="menu">
 
@@ -90,18 +69,28 @@
 			<div class="sidebar-nav navbar-collapse">
 				<ul class="nav" id="side-menu">
 					<li class="sidebar-search">
-
+						<div class="input-group custom-search-form">
+							<input type="text" class="form-control" placeholder="Procurar Vagas...">
+							<span class="input-group-btn">
+								<button class="btn btn-default" type="button">
+									<i class="fa fa-search"></i>
+								</button>
+							</span>
+						</div>
 						<li class="">
-							<a href="<?=site_url('Painel_entidade/index')?>"><i class="fa fa-home" aria-hidden="true"></i><span class=""> Home</span></a>
+							<a href="<?=site_url('Painel_voluntario/Index')?>"><i class="fa fa-home" aria-hidden="true"></i><span class=""> Home</span></a>
+						</li>
+						<li class="">
+							<a href="<?=site_url('Painel_voluntario/carregaPerfilVoluntario')?>"><i class="fa fa-user" aria-hidden="true"></i><span class=""> Meu Perfil</span></a>
 						</li>
 						<li>
-							<a href="<?=site_url('Painel_entidade/carregarPerfil')?>"><i class="fa fa-user" aria-hidden="true"></i><span class=""> Meu Perfil</span></a>
+							<a href="<?=site_url('Painel_voluntario/carregaFormularioBusca')?>"><i class="fa fa-search" aria-hidden="true"></i><span class=""> Procurar Vaga</span></a>
 						</li>
 						<li>
-							<a href="<?=site_url('Vaga/carregaMinhasVagas')?>"><i class="fa fa-list-alt"  aria-hidden="true"></i><span class=""> Minhas Vagas</span></a>
+							<a href="<?=site_url('Painel_voluntario/carregaVagaPorArea')?>"><i class="fa fa-search-plus" aria-hidden="true"></i><span class=""> Vaga Por Área</span></a>
 						</li>
-						<li class="">
-							<a href="<?=site_url('Painel_entidade/carregarCadastroVaga')?>"><i class="fa fa-plus"  aria-hidden="true"></i><span class=""> Cadastrar Nova Vaga</span></a>
+						<li>
+							<a href="<?=site_url('Painel_voluntario/carregaHistoricoDeVagas')?>"><i class="fa fa-list-alt" aria-hidden="true"></i><span class=""> Historico de Vagas</span></a>
 						</li>
 
 

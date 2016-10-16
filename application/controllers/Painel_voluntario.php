@@ -11,22 +11,22 @@ class Painel_voluntario extends MY_ControllerLogado {
 		$data = array("dadosVoluntario" => $this->Voluntario_model->getVoluntario($id_voluntario)->row(),
 		"minhasVagas" => $this->Candidato_model->minhasVagasAtuais(),
 		"vagasFinalizadas" =>$this->Candidato_model->minhasVagasFinalizadas());
-		$this->load->view('cabecalho_voluntario', $data);
-		$this->load->view('home_voluntario', $data);
+		$this->load->view('voluntario/cabecalho_voluntario', $data);
+		$this->load->view('voluntario/home_voluntario', $data);
 	}
 
 	public function carregaPerfilVoluntario() {
 		$id_voluntario = $this->session->userdata('id_voluntario');
 		$data = array("dadosVoluntario" => $this->Voluntario_model->getVoluntario($id_voluntario)->row());
-		$this->load->view('cabecalho_voluntario', $data);
-		$this->load->view('perfil_voluntario', $data);
+		$this->load->view('voluntario/cabecalho_voluntario', $data);
+		$this->load->view('voluntario/perfil_voluntario', $data);
 	}
 
 	public function carregaFormularioBusca() {
 		$id_voluntario = $this->session->userdata('id_voluntario');
 		$data = array("dadosVoluntario" => $this->Voluntario_model->getVoluntario($id_voluntario)->row());
-		$this->load->view('cabecalho_voluntario', $data);
-		$this->load->view('procura_vaga', $data);
+		$this->load->view('voluntario/cabecalho_voluntario', $data);
+		$this->load->view('voluntario/procura_vaga', $data);
 	}
 
 	public function Atualizar() {
@@ -43,13 +43,13 @@ class Painel_voluntario extends MY_ControllerLogado {
 			$id_voluntario = $this->session->userdata('id_voluntario');
 			$dados2 = array("dadosVoluntario" => $this->Voluntario_model->getVoluntario($id_voluntario)->row());
 			$this->Voluntario_model->alterar($data);
-			$this->carregaPerfilVoluntario();
+			redirect('Painel_voluntario/carregaPerfilVoluntario/?aviso=1');
 
 		} else {
 
 			$data['senha'] = md5($this->input->post('senha_voluntario'));
 			$this->Voluntario_model->alterar($data);
-			$this->carregaPerfilVoluntario();
+			redirect('Painel_voluntario/carregaPerfilVoluntario/?aviso=1');
 
 		}
 
@@ -64,16 +64,16 @@ class Painel_voluntario extends MY_ControllerLogado {
 	public function carregarPerfil() {
 		$id_voluntario = $this->session->userdata('id_voluntario');
 		$data = array("dadosVoluntario" => $this->Voluntario_model->getVoluntario($id_voluntario)->row());
-		$this->load->view('cabecalho_voluntario', $data);
-		$this->load->view('perfil_voluntario', $data);
+		$this->load->view('voluntario/cabecalho_voluntario', $data);
+		$this->load->view('voluntario/perfil_voluntario', $data);
 	}
 
 
 	public function gambiarra(){
 		$id_voluntario = $this->session->userdata('id_voluntario');
 		$data = array("dadosVoluntario" => $this->Voluntario_model->getVoluntario($id_voluntario)->row());
-		$this->load->view('cabecalho_voluntario', $data);
-		$this->load->view('resultado_busca', $data);
+		$this->load->view('voluntario/cabecalho_voluntario', $data);
+		$this->load->view('voluntario/resultado_busca', $data);
 	}
 
 	public function getVagas(){
@@ -93,8 +93,8 @@ class Painel_voluntario extends MY_ControllerLogado {
 			$id_voluntario = $this->session->userdata('id_voluntario');
 			$data = array("dadosVoluntario" => $this->Voluntario_model->getVoluntario($id_voluntario)->row(),
 			"dados" => $this->Vaga_model->getVagas($teste));
-			$this->load->view('cabecalho_voluntario', $data);
-			$this->load->view('resultado_busca', $data);
+			$this->load->view('voluntario/cabecalho_voluntario', $data);
+			$this->load->view('voluntario/resultado_busca', $data);
 		}
 
 
@@ -106,8 +106,8 @@ class Painel_voluntario extends MY_ControllerLogado {
 		$data = array("dadosVoluntario" => $this->Voluntario_model->getVoluntario($id_voluntario)->row(),
 		"dadosVaga" => $this->Vaga_model->getVagaSozinha($id_vaga),
 		"dadosEntidade" => $this->Entidade_model->getEntidadeSozinho($id_entidade));
-		$this->load->view('cabecalho_voluntario', $data);
-		$this->load->view('vaga_completa', $data);
+		$this->load->view('voluntario/cabecalho_voluntario', $data);
+		$this->load->view('voluntario/vaga_completa', $data);
 	}
 
 	public function candidataVaga(){
@@ -159,7 +159,7 @@ class Painel_voluntario extends MY_ControllerLogado {
 			echo $data_validade;
 
 			$diferenca = strtotime($data_validade) - strtotime($data_atual);
-			$dias = floor($diferenca / (60 * 60 * 24)); echo "A diferença é de $dias entre as datas";
+			$dias = floor($diferenca / (60 * 60 * 24));
 
 			if ($dias < 2) {
 				redirect('Painel_voluntario/index/?aviso=4');
@@ -188,8 +188,8 @@ class Painel_voluntario extends MY_ControllerLogado {
 		$data = array("dadosVoluntario" => $this->Voluntario_model->getVoluntario($id_voluntario)->row(),
 		"vagasAceitas" => $this->Candidato_model->minhasVagasAceitas(),
 		"vagasRecusadas" => $this->Candidato_model->minhasVagasRecusadas());
-		$this->load->view('cabecalho_voluntario', $data);
-		$this->load->view('historico_vagas', $data);
+		$this->load->view('voluntario/cabecalho_voluntario', $data);
+		$this->load->view('voluntario/historico_vagas', $data);
 	}
 
 	public function carregaVagaPorArea(){
@@ -197,8 +197,8 @@ class Painel_voluntario extends MY_ControllerLogado {
 		$data = array("dadosVoluntario" => $this->Voluntario_model->getVoluntario($id_voluntario)->row(),
 		"vagaPorAreaUm" => $this->Vaga_model->getPorAreaUm(),
 		"vagaPorAreaDois" =>$this->Vaga_model->getPorAreaDois());
-		$this->load->view('cabecalho_voluntario', $data);
-		$this->load->view('busca_por_area', $data);
+		$this->load->view('voluntario/cabecalho_voluntario', $data);
+		$this->load->view('voluntario/busca_por_area', $data);
 	}
 
 

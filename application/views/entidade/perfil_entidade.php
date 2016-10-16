@@ -57,7 +57,7 @@
                   </div>
                 </div>
                 <div class="form-group col-md-6">
-                  <label>telefone</label>
+                  <label>Telefone</label>
                   <input type="text"
                   class="form-control" name="telefone"
                   placeholder="Telefone"
@@ -119,7 +119,7 @@
               <div class="row">
                 <div class="col-sm-8">
                   <div class="form-group">
-                    <label>Area de atuação</label>
+                    <label>Área de atuação</label>
                     <select class="form-control" name="atuacao_um" value="">
                       <option value="<?php echo $dadosEntidade->area_atuacao ?>"><?php echo $dadosEntidade->area_atuacao ?></option>
                       <option value="ONG optou por não informar">Não desejo informar</option>

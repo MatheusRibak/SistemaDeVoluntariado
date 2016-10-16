@@ -5,29 +5,18 @@
   <div class="row">
 
     <div class="col-lg-12">
-      <h1 class="page-header">Tables</h1>
+      <h1 class="page-header">Meu Perfil</h1>
     </div>
     <!-- /.col-lg-12 -->
   </div>
   <!-- /.row -->
   <div class="row">
     <div class="col-sm-12">
-      <?php if ($this->input->get('aviso') == 2) { ?>
+      <?php if ($this->input->get('aviso') == 1) { ?>
         <div class="alert alert-success">
-          Você se candidatou a vaga com sucesso! Logo você vai ter um retorno referente a mesma!!!
+          Você alterou o seu perfil com sucesso!!!
         </div>
         <?php } ?>
-        <?php if ($this->input->get('aviso') == 3) { ?>
-          <div class="alert alert-success">
-            Você excluiu a sua candidatura com sucesso!!!
-          </div>
-          <?php } ?>
-          <?php if ($this->input->get('aviso') == 4) { ?>
-            <div class="alert alert-danger">
-              Você não pode excluir a vaga pois faltam menos de 48 horas para ela ser executada, caso você
-              não compareça a ONG provavelmente irá falar mal a seu respeito no seu historico...
-            </div>
-            <?php } ?>
           </div>
 
           <div class="col-lg-12">

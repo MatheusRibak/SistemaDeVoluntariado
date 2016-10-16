@@ -15,8 +15,8 @@ class Vaga extends MY_ControllerLogado {
 		$data = array("dadosEntidade" => $this->Entidade_model->getEntidade($id_entidade)->row(),
 		"minhasVagas" => $this->Vaga_model->getVagaEntidadeAtiva(),
 		"minhasVagasFinalizadas" => $this->Vaga_model->getVagaEntidadeFinalizada());
-		$this->load->view('cabecalho_entidade', $data);
-		$this->load->view('minhas_vagas', $data);
+		$this->load->view('entidade/cabecalho_entidade', $data);
+		$this->load->view('entidade/minhas_vagas', $data);
 	}
 
 

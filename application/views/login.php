@@ -38,7 +38,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="/your.groupid/;jsessionid=B3492B48A59F9AF78373ADB67BDBC592">Eu Voluntário</a>
+				<a class="navbar-brand" href="<?=site_url('home')?>">Eu Voluntário</a>
 
 			</div>
 			<div class="collapse navbar-collapse" id="navbar-collapse-1">

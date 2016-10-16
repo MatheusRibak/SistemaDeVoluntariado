@@ -64,6 +64,10 @@
                   <div class="col-md-5">
                     <strong><i class="fa fa-suitcase"></i> Local: </strong><?php echo $row->estado?> / <?php echo $row->cidade?>
                     <br>
+
+                  </div>
+                  <div class="col-md-12">
+                    <strong><i class="fa fa-suitcase"></i> Descrição do Local: </strong><?php echo $row->descricao_local?>
                     <br>
                   </div>
 
@@ -94,6 +98,7 @@
 
 
                   </div>
+
 
                 <?php endforeach; ?>
                 <div class="col-md-12">

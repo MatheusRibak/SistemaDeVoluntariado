@@ -23,6 +23,7 @@
 	<script src="<?=base_url('assets/js/bootstrap.js')?>" type="text/javascript"></script>
 
 	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
 </head>
 
 <body>
@@ -37,7 +38,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="/your.groupid/;jsessionid=B3492B48A59F9AF78373ADB67BDBC592">Eu Voluntário</a>
+				<a class="navbar-brand" href="<?=site_url('home')?>">Eu Voluntário</a>
 
 			</div>
 			<div class="collapse navbar-collapse" id="navbar-collapse-1">
@@ -96,72 +97,88 @@
 								</br>
 								<form action="<?=site_url('salvar_entidade')?>" method="post">
 									<div class="form-group">
-										<label for="nomeEntidade">Nome da sua organização(ONG):</label>
+										<label for="nomeEntidade">Nome da sua organização(ONG): *</label>
 										<input type="text"
 										id="nomeEntidade" name="entidade_nome"
 										value="" class="form-control" required />
 									</div>
 									<div class="form-group">
-										<label for="telefoneEntidade">Telefone para contato:</label>
-										<input type="tel"
-										id="telefoneEntidade" name="entidade_telefone"
-										value="" class="form-control" required  />
+										<label for="telefoneEntidade">Telefone para contato: *</label>
+										<input type="text" class="form-control telefone"
+										 name="entidade_telefone"
+										value=""  required  />
 									</div>
 									<div class="form-group">
-										<label for="emailEntidade">E-mail:</label>
+										<label for="emailEntidade">E-mail: *</label>
 										<input type="email"
 										name="entidade_email" id="emailEntidade"
 										value="" class="form-control" required  />
 									</div>
 
 									<div class="form-group">
-										<label for="senhaEntidade">Senha:</label>
+										<label for="senhaEntidade">Senha: *</label>
 										<input type="password"
 										id="senhaEntidade" name="entidade_senha"
 										value="" class="form-control" required  />
 									</div>
 									<div class="form-group">
-										<label for="areaAtuacao">Area de atuação da organização:</label>
-										<input type="text"
-										id="areaAtuacao" name="entidade_area_atuacao"
-										value=""	class="form-control" required  />
+										<label for="senhaVoluntario">Informe a sua área da sua Organização: *</label>
+										<select class="form-control" name="atuacao_um">
+											<option value="Animais">Animais</option>
+											<option value="Crianças">Crianças</option>
+											<option value="Idosos">Idosos</option>
+											<option value="Educação">Educação</option>
+											<option value="Meio Ambiente">Meio Ambiente</option>
+											<option value="Computação">Computação</option>
+											<option value="Politica">Politica</option>
+											<option value="Pessoas com necessidades Especiais">Pessoas com necessidades Especiais</option>
+											<option value="Comunidade LGBT">Comunidade LGBT</option>
+											<option value="Esporte">Esportes</option>
+											<option value="Religiões">Religiões</option>
+											<option value="Saúde">Saúde</option>
+											<option value="Reformas">Reformas</option>
+											<option value="Outras Áreas">Outros</option>
+										</select>
 									</div>
 									<h3>Endereço da organização:</h3>
 									<div class="form-group">
-										<label for="ruaEntidade">Rua:</label>
+										<label for="ruaEntidade">Rua: *</label>
 										<input type="text"
 										id="ruaEntidade" name="entidade_rua"
 										value="" class="form-control" required  />
 									</div>
 									<div class="form-group">
-										<label for="bairroEntidade">Bairro:</label>
+										<label for="bairroEntidade">Bairro: *</label>
 										<input type="text"
 										id="bairroEntidade" name="entidade_bairro"
 										value="" class="form-control" required  />
 									</div>
 									<div class="form-group">
-										<label for="numeroEntidade">Número:</label>
+										<label for="numeroEntidade">Número: *</label>
 										<input type="text"
 										id="numeroEntidade" name="entidade_numero"
 										value="" class="form-control" required  />
 									</div>
 									<div class="form-group">
-										<label for="cidadeEntidade">Cidade:</label>
+										<label for="cidadeEntidade">Cidade: *</label>
 										<input type="text"
 										id="cidadeEntidade" name="entidade_cidade"
 										value="" class="form-control" required  />
 									</div>
 									<div class="form-group">
-										<label for="ufEntidade">UF:</label>
+										<label for="ufEntidade">UF: *</label>
 										<input type="text"
 										id="ufEntidade" name="entidade_uf"
 										value="" class="form-control" required  />
 									</div>
 									<div class="form-group">
-										<label for="cepEntidade">Cep:</label>
+										<label for="cepEntidade">Cep: *</label>
 										<input type="text"
 										id="cepEntidade" name="entidade_cep"
 										value="" class="form-control" required  />
+									</div>
+									<div class="form-group">
+										<label for="">* Dados Obrigatórios</label>
 									</div>
 
 									<button type="submit" class="btn btn-primary">
@@ -175,37 +192,36 @@
 							</br>
 							<form action="<?=site_url('salvar_voluntario')?>" method="post">
 								<div class="form-group">
-									<label for="nomeVoluntario">Nome completo:</label>
+									<label for="nomeVoluntario">Nome completo: *</label>
 									<input type="text"
 									id="nomeVoluntario" name="voluntario_nome"
 									value="" class="form-control" required  />
 								</div>
 								<div class="form-group">
-									<label for="celularVoluntario">Celular para contato:</label>
+									<label for="celularVoluntario">Celular para contato: *</label>
 									<input type="tel"
 									id="celularVoluntario" name="voluntario_telefone"
-									value="" class="form-control" required  />
+									value="" class="form-control telefone" required  />
 								</div>
 
 								<div class="form-group">
-									<label for="emailVoluntario">Email:</label>
+									<label for="emailVoluntario">Email: *</label>
 									<input type="email"
 									id="emailVoluntario" name="voluntario_email"
 									value="" class="form-control" required  />
 								</div>
 
 								<div class="form-group">
-									<label for="senhaVoluntario">Senha:</label>
+									<label for="senhaVoluntario">Senha: *</label>
 									<input type="password"
 									id="senhaVoluntario" name="voluntario_senha"
 									value="" class="form-control" required  />
 								</div>
 
-								<h3>Informe 2 áreas de interesse</h3>
+
 								<div class="form-group">
-									<label for="senhaVoluntario">Área 1</label>
+									<label for="senhaVoluntario">Informe a sua área de interesse: *</label>
 									<select class="form-control" name="atuacao_um">
-										<option value="ONG optou por não informar">Não desejo informar</option>
 										<option value="Animais">Animais</option>
 										<option value="Crianças">Crianças</option>
 										<option value="Idosos">Idosos</option>
@@ -222,25 +238,9 @@
 										<option value="Outras Áreas">Outros</option>
 									</select>
 								</div>
+
 								<div class="form-group">
-									<label for="senhaVoluntario">Área 2</label>
-									<select class="form-control" name="atuacao_dois">
-										<option value="ONG optou por não informar">Não desejo informar</option>
-										<option value="Animais">Animais</option>
-										<option value="Crianças">Crianças</option>
-										<option value="Idosos">Idosos</option>
-										<option value="Educação">Educação</option>
-										<option value="Meio Ambiente">Meio Ambiente</option>
-										<option value="Computação">Computação</option>
-										<option value="Politica">Politica</option>
-										<option value="Pessoas com necessidades Especiais">Pessoas com necessidades Especiais</option>
-										<option value="Comunidade LGBT">Comunidade LGBT</option>
-										<option value="Esporte">Esportes</option>
-										<option value="Religiões">Religiões</option>
-										<option value="Saúde">Saúde</option>
-										<option value="Reformas">Reformas</option>
-										<option value="Outras Áreas">Outros</option>
-									</select>
+									<label for="">* Dados Obrigatórios</label>
 								</div>
 								<button type="submit" class="btn btn-primary">
 									CADASTRAR <span class="glyphicon glyphicon-ok"></span>
@@ -276,6 +276,10 @@
 
 	<script src="<?=base_url('assets/js/bootstrap.min.js')?>"></script>
 	<script src="<?=base_url('../../assets/js/vendor/holder.min.js')?>"></script>
+	<script src="<?=base_url('assets/js/jquery.mask.min.js')?>" type="text/javascript"></script>
+	<script type="text/javascript">
+		$('.telefone').mask('(00) 0000 - 0000');
+</script>
 
 </body>
 </html>

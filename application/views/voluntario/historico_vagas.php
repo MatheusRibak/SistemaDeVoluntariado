@@ -5,18 +5,13 @@
   <div class="row">
 
     <div class="col-lg-12">
-      <h1 class="page-header">Tables</h1>
+      <h1 class="page-header">Histórico de suas Vagas</h1>
     </div>
     <!-- /.col-lg-12 -->
   </div>
   <!-- /.row -->
   <div class="row">
     <div class="col-sm-12">
-      <?php if ($this->input->get('aviso') == 2) { ?>
-        <div class="alert alert-success">
-          Você se candidatou a vaga com sucesso! Logo você vai ter um retorno referente a mesma!!!
-        </div>
-        <?php } ?>
         <?php if ($this->input->get('aviso') == 3) { ?>
           <div class="alert alert-success">
             Você excluiu a sua candidatura com sucesso!!!

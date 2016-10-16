@@ -77,7 +77,7 @@
         Meus Voluntários
       </div>
       <div class="panel-body">
-        <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+        <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example2">
           <thead>
             <tr>
               <th>Nome</th>
@@ -140,6 +140,14 @@
 <script>
 $(document).ready(function() {
   $('#dataTables-example').DataTable({
+    responsive: true
+  });
+});
+</script>
+
+<script>
+$(document).ready(function() {
+  $('#dataTables-example2').DataTable({
     responsive: true
   });
 });
