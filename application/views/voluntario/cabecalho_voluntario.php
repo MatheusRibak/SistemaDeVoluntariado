@@ -50,7 +50,7 @@
 			<!-- /.dropdown -->
 			<li class="dropdown">
 
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span> <?php echo $dadosVoluntario->nome ?></span> <span class="caret"></span> </a>
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span> <?php echo $dadosVoluntario->nome_voluntario ?></span> <span class="caret"></span> </a>
 
 				<ul class="dropdown-menu" role="menu">
 
@@ -69,14 +69,17 @@
 			<div class="sidebar-nav navbar-collapse">
 				<ul class="nav" id="side-menu">
 					<li class="sidebar-search">
-						<div class="input-group custom-search-form">
-							<input type="text" class="form-control" placeholder="Procurar Vagas...">
-							<span class="input-group-btn">
-								<button class="btn btn-default" type="button">
-									<i class="fa fa-search"></i>
-								</button>
-							</span>
-						</div>
+						<form action="<?=site_url('Painel_voluntario/getVagas')?>" method="post">
+							<div class="input-group custom-search-form">
+
+								<input type="text" class="form-control" placeholder="Procurar Vagas..." name="input_busca">
+								<span class="input-group-btn">
+									<button class="btn btn-default" type="submit">
+										<i class="fa fa-search"></i>
+									</button>
+								</span>
+							</div>
+						</form>
 						<li class="">
 							<a href="<?=site_url('Painel_voluntario/Index')?>"><i class="fa fa-home" aria-hidden="true"></i><span class=""> Home</span></a>
 						</li>

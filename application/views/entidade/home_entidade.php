@@ -32,23 +32,21 @@
               <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                 <thead>
                   <tr>
-                    <th>Nome</th>
-                    <th>Status</th>
+                    <th>Nome da Vaga</th>
+                    <th>Nome do Candidato</th>
                     <th>Opções</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <?php if (!empty($dadosVagaAtuais)):
-                    foreach ($dadosVagaAtuais as $row): ?>
+                  <?php if (!empty($candidato)):
+                    foreach ($candidato as $row): ?>
                     <td>
                       <?php echo $row->nome;?>
                     </td>
                     <td>
-                      <?php foreach ($candidato as $key): ?>
-                        <?php echo $key->nome;?>
+                      <?php echo $row->nome_voluntario;?>
+                    </td>
 
-
-                      </td>
                       <td>
                         <a  href="<?= site_url('Painel_entidade/verCandidato/' . $row->id_voluntario . '/' . $row->id_vaga) ?>"
                           class="btn btn-info btn-sm">
@@ -57,7 +55,7 @@
                       </td>
 
                     </tr>
-                  <?php endforeach; ?>
+
                 <?php endforeach; ?>
               <?php else: {
                 echo "<td colspan='5' align = 'center'>
@@ -72,53 +70,7 @@
       </div>
     </div>
 
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        Meus Voluntários
-      </div>
-      <div class="panel-body">
-        <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example2">
-          <thead>
-            <tr>
-              <th>Nome</th>
-              <th>Status</th>
-              <th>Opções</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php if (!empty($dadosVagaAtuais)):
-              foreach ($dadosVagaAtuais as $row): ?>
-              <td>
-                <?php echo $row->nome;?>
-              </td>
-              <td>
-                <?php foreach ($candidato as $key): ?>
-                  <?php echo $key->nome;?>
 
-
-                </td>
-                <td>
-                  <a  href="<?= site_url('Historico/cadastrarHistorico/' . $row->id_voluntario . '/' . $row->id_vaga) ?>"
-                    class="btn btn-info btn-sm">
-                    <i class="fa fa-eye" aria-hidden="true"></i>   Feedback
-                  </a>
-                </td>
-
-              </tr>
-            <?php endforeach; ?>
-          <?php endforeach; ?>
-        <?php else: {
-          echo "<td colspan='5' align = 'center'>
-          Você não possui nenhum candidato aceito até o momento...
-          </td>";
-        } ?>
-      <?php	endif; ?>
-    </tbody>
-  </table>
-
-
-</div>
-</div>
 <!-- /.panel -->
 </div>
 <!-- /.col-lg-12 -->

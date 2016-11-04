@@ -34,7 +34,7 @@ class Painel_voluntario extends MY_ControllerLogado {
 		$data = array();
 
 		$senha = $this->input->post('senha_voluntario');
-		$data['nome'] = $this->input->post('nome');
+		$data['nome_voluntario'] = $this->input->post('nome');
 		$data['telefone'] = $this->input->post('telefone');
 		$data['email'] = $this->input->post('email');
 
@@ -114,13 +114,11 @@ class Painel_voluntario extends MY_ControllerLogado {
 		$id_voluntario = $this->session->userdata('id_voluntario');
 
 		$id_vaga =  $this->input->post('id_vaga');
-		$aguardando = "Aguardando Reposta";
 		$this->db
 		->select("*")
 		->from("vaga_candidato")
 		->where("id_voluntario", $id_voluntario)
-		->where("id_vaga", $id_vaga)
-		->where("status_vaga", $aguardando);
+		->where("id_vaga", $id_vaga);
 
 		$dadosCandidato = $this->db->get();
 
@@ -165,7 +163,7 @@ class Painel_voluntario extends MY_ControllerLogado {
 				redirect('Painel_voluntario/index/?aviso=4');
 			} else {
 				$data = array(
-					"excluir" => $this->Candidato_model->excluir($id_academico, $id_vaga)
+					"excluir" => $this->Candidato_model->excluirAceita($id_academico, $id_vaga)
 				);
 				redirect('Painel_voluntario/index/?aviso=3');
 			}
@@ -178,7 +176,7 @@ class Painel_voluntario extends MY_ControllerLogado {
 		$id_voluntario = $this->session->userdata('id_voluntario');
 
 		$data = array(
-			"excluir" => $this->Candidato_model->excluir($id_academico, $id_vaga)
+			"excluir" => $this->Candidato_model->excluirNaoAceita($id_academico, $id_vaga)
 		);
 		redirect('Painel_voluntario/index/?aviso=3');
 	}
@@ -195,8 +193,7 @@ class Painel_voluntario extends MY_ControllerLogado {
 	public function carregaVagaPorArea(){
 		$id_voluntario = $this->session->userdata('id_voluntario');
 		$data = array("dadosVoluntario" => $this->Voluntario_model->getVoluntario($id_voluntario)->row(),
-		"vagaPorAreaUm" => $this->Vaga_model->getPorAreaUm(),
-		"vagaPorAreaDois" =>$this->Vaga_model->getPorAreaDois());
+		"vagaPorAreaUm" => $this->Vaga_model->getPorAreaUm());
 		$this->load->view('voluntario/cabecalho_voluntario', $data);
 		$this->load->view('voluntario/busca_por_area', $data);
 	}

@@ -92,28 +92,14 @@ class Vaga_model extends CI_Model {
   public function getCandidato(){
     $status = 'Aguardando Reposta';
     $this->db
-    ->select("*")
-    ->from("vaga")
-    ->join('vaga_candidato', 'vaga.id_vaga = vaga_candidato.id_vaga')
+    ->select('*')
+    ->from('vaga_candidato')
+    ->join('vaga', 'vaga.id_vaga  = vaga_candidato.id_vaga')
+    ->join('voluntario', 'voluntario.id_voluntario = vaga_candidato.id_voluntario')
     ->where('status_vaga', $status);
 
-    $query = $this->db->get()->result();
+  return $this->db->get()->result();
 
-    foreach ($query as $row) {
-      $this->db->select("*")
-      ->from("vaga_candidato")
-      ->where("id_vaga", $row->id_vaga);
-
-      $resultado =  $this->db->get()->result();
-
-      foreach ($resultado as $key) {
-        $this->db->select("*")
-        ->from("voluntario")
-        ->where("id_voluntario", $row->id_voluntario);
-
-        return $this->db->get()->result();
-      }
-    }
   }
 
   public function getCandidatoSozinho($id_voluntario){

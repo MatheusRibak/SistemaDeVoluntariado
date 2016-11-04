@@ -5,7 +5,7 @@
   <div class="row">
 
     <div class="col-lg-12">
-      <h2 class="page-header">Seja bem-vindo: <?php echo $dadosVoluntario->nome ?></h2>
+      <h2 class="page-header">Seja bem-vindo: <?php echo $dadosVoluntario->nome_voluntario ?></h2>
     </div>
     <!-- /.col-lg-12 -->
   </div>

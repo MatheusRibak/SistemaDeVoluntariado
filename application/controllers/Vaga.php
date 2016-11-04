@@ -67,8 +67,8 @@ class Vaga extends MY_ControllerLogado {
 		"dadosVaga" => $this->Vaga_model->getVagaSozinha($id_vaga),
 		"dadosEntidade" => $this->Entidade_model->getEntidadeSozinho($id_entidade));
 
-		$this->load->view('cabecalho_voluntario', $data);
-		$this->load->view('ver_aceita',$data);
+		$this->load->view('voluntario/cabecalho_voluntario', $data);
+		$this->load->view('voluntario/ver_aceita',$data);
 	}
 
 

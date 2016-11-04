@@ -9,11 +9,10 @@ class Painel_entidade extends MY_ControllerLogado {
 		$id_entidade = $this->session->userdata('id_entidade');
 
 		$data = array("dadosEntidade" => $this->Entidade_model->getEntidade($id_entidade)->row(),
-		"dadosVagaAtuais" => $this->Vaga_model->vagaDaEntidade(),
 		"candidato" => $this->Vaga_model->getCandidato());
 
 		$this->load->view('entidade/cabecalho_entidade', $data);
-		$this->load->view('entidade/home_entidade', $data);
+		$this->load->view('entidade/home_entidade');
 	}
 
 	function deslogar() {

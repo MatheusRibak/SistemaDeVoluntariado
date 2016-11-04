@@ -3,12 +3,11 @@
 class Voluntario_model extends CI_Model {
 
 	public $id_voluntario;
-	public $nome;
+	public $nome_voluntario;
 	public $email;
 	public $telefone;
 	public $senha;
 	public $atuacao_um;
-	public $atuacao_dois;
 
 	function __construct() {
 		parent::__construct();

@@ -43,8 +43,8 @@ class Candidato_model extends CI_Model {
 		$status = 'Finalizada';
 		$id_voluntario = $this->session->userdata('id_voluntario');
 		$this->db
-		->select("*")
-		->from("vaga")
+		->select('*')
+		->from('vaga')
 		->join('vaga_candidato', 'vaga.id_vaga = vaga_candidato.id_vaga')
 		->where('id_voluntario', $id_voluntario)
 		->where('status_vaga', $status);
@@ -55,15 +55,24 @@ class Candidato_model extends CI_Model {
 		$status = 'Recusada';
 		$id_voluntario = $this->session->userdata('id_voluntario');
 		$this->db
-		->select("*")
-		->from("vaga")
+		->select('*')
+		->from('vaga')
 		->join('vaga_candidato', 'vaga.id_vaga = vaga_candidato.id_vaga')
 		->where('id_voluntario', $id_voluntario)
 		->where('status_vaga', $status);
 		return $query = $this->db->get()->result();
 	}
 
-	public function excluir($id_voluntario, $id_vaga){
+	public function excluirNaoAceita($id_voluntario, $id_vaga){
+		$status_vaga = "Aguardando Reposta";
+		$id_voluntario = $this->session->userdata('id_voluntario');
+		$this->db->where('id_voluntario', $id_voluntario);
+		$this->db->where('id_vaga', $id_vaga);
+		$this->db->where('status_vaga', $status_vaga);
+		$this->db->delete('vaga_candidato');
+	}
+
+	public function excluirAceita($id_voluntario, $id_vaga){
 		$id_voluntario = $this->session->userdata('id_voluntario');
 		$this->db->where('id_voluntario', $id_voluntario);
 		$this->db->where('id_vaga', $id_vaga);

@@ -33,7 +33,7 @@
                         <label for="exampleInputEmail1">Nome</label>
                         <input
                         type="text" class="form-control" name="nome"
-                        placeholder="Nome" value="<?php echo $dadosVoluntario->nome ?>"  />
+                        placeholder="Nome" value="<?php echo $dadosVoluntario->nome_voluntario ?>"  />
                       </div>
                       <div class="col-sm-6">
                         <div class="form-group">

@@ -31,7 +31,7 @@
 
                 <div class="row">
                   <div class="col-md-6">
-                    <strong> <i class="fa fa-user"></i> Voluntário com o nome: </strong> <?php echo $key->nome ?>
+                    <strong> <i class="fa fa-user"></i> Voluntário com o nome: </strong> <?php echo $key->nome_voluntario ?>
 
                   </div>
                   <div class="col-md-6">
