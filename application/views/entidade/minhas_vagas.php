@@ -38,7 +38,7 @@
                   <thead>
                     <tr>
                       <th>Nome</th>
-                      <th>Status</th>
+                      <th>Descrição</th>
                       <th>Opções</th>
                     </tr>
                   </thead>
@@ -86,7 +86,7 @@
             <thead>
               <tr>
                 <th>Nome</th>
-                <th>Status</th>
+                <th>Descrição</th>
                 <th>Opções</th>
               </tr>
             </thead>
@@ -103,7 +103,7 @@
                   <a  href="<?= site_url('Vaga/recadastrarVaga/' . $row->id_vaga . '/' . $row->id_entidade ) ?>"
                     class="btn btn-success btn-sm"
                     >
-                    <i class="fa fa-trash-o" aria-hidden="true"></i>   Recadastrar Vaga
+                    <i class="fa fa-check" aria-hidden="true"></i>   Recadastrar Vaga
                   </a>
                 </td>
 

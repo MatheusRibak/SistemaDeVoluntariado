@@ -9,7 +9,8 @@ class Painel_entidade extends MY_ControllerLogado {
 		$id_entidade = $this->session->userdata('id_entidade');
 
 		$data = array("dadosEntidade" => $this->Entidade_model->getEntidade($id_entidade)->row(),
-		"candidato" => $this->Vaga_model->getCandidato());
+		"candidato" => $this->Vaga_model->getCandidato(),
+		"candidatoAceito" => $this->Vaga_model->getCandidatoAceito());
 
 		$this->load->view('entidade/cabecalho_entidade', $data);
 		$this->load->view('entidade/home_entidade');
@@ -110,7 +111,8 @@ class Painel_entidade extends MY_ControllerLogado {
 		$data = array("dadosEntidade" => $this->Entidade_model->getEntidade($id_entidade)->row(),
 		"dadosVoluntario" => $this->Vaga_model->getCandidatoSozinho($id_voluntario),
 		"dadosVagaAtuais" => $this->Vaga_model->vagaSozinha($id_vaga, $id_voluntario),
-		"candidato" => $this->Vaga_model->getCandidato());
+		"candidato" => $this->Vaga_model->getCandidato(),
+		"historico" => $this->Historico_model->getHistorico($id_voluntario)->result());
 		$this->load->view('entidade/cabecalho_entidade', $data);
 		$this->load->view('entidade/ver_candidato', $data);
 	}

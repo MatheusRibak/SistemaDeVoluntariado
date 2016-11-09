@@ -57,7 +57,7 @@
                         <div class="form-group">
                           <label>Senha</label>
                           <input type="password" class="form-control"
-                          name="senha_voluntario" placeholder="senha"
+                          name="senha_voluntario" placeholder="Senha"
                           value="" />
                         </div>
                       </div>

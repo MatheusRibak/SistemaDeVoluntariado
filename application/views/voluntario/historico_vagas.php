@@ -56,7 +56,7 @@
                         </a>
                         <a  href="<?= site_url('Vaga/verAceita/' . $row->id_vaga . '/' . $row->id_entidade) ?>"
                           class="btn btn-info btn-sm">
-                          <i class="fa fa-trash-o" aria-hidden="true"></i>   Ver Detalhes
+                          <i class="fa fa-eye" aria-hidden="true"></i>   Ver Detalhes
                         </a>
                       </td>
 

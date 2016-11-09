@@ -22,30 +22,35 @@
             Você recusou o candidato com sucesso!!!
           </div>
           <?php } ?>
-        </div>
-        <div class="col-xs-12 col-lg-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              Candidaturas Para as minhas Vagas
+          <?php if ($this->input->get('aviso') == 3) { ?>
+            <div class="alert alert-success">
+              Você cadastrou o historico do voluntário com sucesso!!!
             </div>
-            <div class="panel-body">
-              <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
-                <thead>
-                  <tr>
-                    <th>Nome da Vaga</th>
-                    <th>Nome do Candidato</th>
-                    <th>Opções</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php if (!empty($candidato)):
-                    foreach ($candidato as $row): ?>
-                    <td>
-                      <?php echo $row->nome;?>
-                    </td>
-                    <td>
-                      <?php echo $row->nome_voluntario;?>
-                    </td>
+            <?php } ?>
+          </div>
+          <div class="col-xs-12 col-lg-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                Candidaturas Para as minhas Vagas
+              </div>
+              <div class="panel-body">
+                <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                  <thead>
+                    <tr>
+                      <th>Nome da Vaga</th>
+                      <th>Nome do Candidato</th>
+                      <th>Opções</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php if (!empty($candidato)):
+                      foreach ($candidato as $row): ?>
+                      <td>
+                        <?php echo $row->nome;?>
+                      </td>
+                      <td>
+                        <?php echo $row->nome_voluntario;?>
+                      </td>
 
                       <td>
                         <a  href="<?= site_url('Painel_entidade/verCandidato/' . $row->id_voluntario . '/' . $row->id_vaga) ?>"
@@ -56,19 +61,74 @@
 
                     </tr>
 
-                <?php endforeach; ?>
-              <?php else: {
-                echo "<td colspan='5' align = 'center'>
-                Você não possui nenhuma candidatura para as suas vagas atualmente...
-                </td>";
-              } ?>
-            <?php	endif; ?>
-          </tbody>
-        </table>
+                  <?php endforeach; ?>
+                <?php else: {
+                  echo "<td colspan='5' align = 'center'>
+                  Você não possui nenhuma candidatura para as suas vagas atualmente...
+                  </td>";
+                } ?>
+              <?php	endif; ?>
+            </tbody>
+          </table>
 
 
+        </div>
       </div>
+
+
+      <!-- /.panel -->
     </div>
+
+
+
+
+
+    <div class="col-xs-12 col-lg-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Meus Voluntários
+        </div>
+        <div class="panel-body">
+          <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example2">
+            <thead>
+              <tr>
+                <th>Nome da Vaga</th>
+                <th>Nome do Candidato</th>
+                <th>Opções</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php if (!empty($candidatoAceito)):
+                foreach ($candidatoAceito as $row): ?>
+                <td>
+                  <?php echo $row->nome;?>
+                </td>
+                <td>
+                  <?php echo $row->nome_voluntario;?>
+                </td>
+
+                <td>
+                  <a  href="<?= site_url('Historico/cadastrarHistorico/' . $row->id_voluntario . '/' . $row->id_vaga) ?>"
+                    class="btn btn-info btn-sm">
+                    <i class="fa fa-eye" aria-hidden="true"></i>   Feedback
+                  </a>
+                </td>
+
+              </tr>
+
+            <?php endforeach; ?>
+          <?php else: {
+            echo "<td colspan='5' align = 'center'>
+            Você ainda não possui nenhum voluntário...
+            </td>";
+          } ?>
+        <?php	endif; ?>
+      </tbody>
+    </table>
+
+
+  </div>
+</div>
 
 
 <!-- /.panel -->

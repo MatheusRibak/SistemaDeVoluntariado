@@ -122,7 +122,7 @@
 							<form action="<?=site_url('voluntario/loginVoluntario')?>" method="post">
 
 								<div class="form-group">
-									<label for="loginVoluntario">Email</label>
+									<label for="loginVoluntario">Email:</label>
 									<input type="text"
 									id="loginVoluntario" name="voluntario_email"
 									value="" class="form-control" required />

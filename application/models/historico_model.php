@@ -20,8 +20,21 @@ class Historico_model extends CI_Model {
     return $this->db->get('voluntario');
   }
 
+  function getHistorico($id_voluntario){
 
+    $this->db->where('id_voluntario', $id_voluntario);
+    return $this->db->get('historico');
+  }
 
+  function getHistoricoPdf($id_voluntario){
+
+    $this->db->select('*')
+    ->from('historico')
+    ->join('vaga', 'historico.id_vaga = vaga.id_vaga')
+    ->join('voluntario', 'voluntario.id_voluntario = historico.id_voluntario')
+    ->where('voluntario.id_voluntario', $id_voluntario);
+  	return $this->db->get()->result();
+  }
 
 
 

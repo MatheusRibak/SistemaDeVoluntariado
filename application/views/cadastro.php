@@ -123,7 +123,7 @@
 									</div>
 									<div class="form-group">
 										<label for="senhaVoluntario">Informe a sua área da sua Organização: *</label>
-										<select class="form-control" name="atuacao_um">
+										<select class="form-control" name="entidade_area_atuacao">
 											<option value="Animais">Animais</option>
 											<option value="Crianças">Crianças</option>
 											<option value="Idosos">Idosos</option>
@@ -278,7 +278,7 @@
 	<script src="<?=base_url('../../assets/js/vendor/holder.min.js')?>"></script>
 	<script src="<?=base_url('assets/js/jquery.mask.min.js')?>" type="text/javascript"></script>
 	<script type="text/javascript">
-		$('.telefone').mask('(00) 0000 - 0000');
+		$('.telefone').mask('(00) 00000 - 0000');
 </script>
 
 </body>

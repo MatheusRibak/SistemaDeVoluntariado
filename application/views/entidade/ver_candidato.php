@@ -42,7 +42,7 @@
                   </div>
                   <div class="col-md-4">
                     <strong>	<i class="fa fa-envelope" aria-hidden="true"></i> E-mail: </strong><?php echo $key->email ?>
-
+<br><br>
 
 
                   </div>
@@ -50,41 +50,45 @@
 
 
                   <div class="form-group col-sm-12">
-                    <span><h3>Comentários de Outras ONGs</h3></span>
-                    <div class="table-responsive">
-                      <table class="table">
-                        <thead>
-                          <tr>
-                            <th>Comentário</th>
-
-                          </tr>
-                        </thead>
-                        <tbody id="myTable">
-                          <?php if (!empty($dadosHistorico)):
-                            foreach ($dadosHistorico as $row): ?>
-                            <td>
-                              <?php echo $row->comentario;?>
-                            </td>
 
 
 
-                          </tr>
-
-                        <?php endforeach; ?>
-                      <?php else: {
-                        echo "<td colspan='5' align = 'center'>
-                        Este voluntário ainda não tem nehum comentário...
-                        </td>";
-                      } ?>
-                    <?php	endif; ?>
-                  </tbody>
-
-                </table>
-                <div class="text-center">
-                  <ul class="pagination pagination-lg pager" id="myPager"></ul>
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                Comentários de Outras ONGs
                 </div>
+                <div class="panel-body">
+                  <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                    <thead>
+                      <tr>
+                        <th>Comentário...</th>
 
-              </div>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+
+
+<tr>
+  <?php if (!empty($historico)):
+    foreach ($historico as $row): ?>
+    <td>
+      <?php echo $row->historico;?>
+    </td>
+</tr>
+                    <?php endforeach; ?>
+                  <?php else: {
+                    echo "<td colspan='5' align = 'center'>
+                    Você não tem nenhuma vaga ativa atualmente..
+                    </td>";
+                  } ?>
+                <?php	endif; ?>
+              </tbody>
+            </table>
+
+
+          </div>
+        </div>
 
 
 
