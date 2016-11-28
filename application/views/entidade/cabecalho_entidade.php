@@ -103,6 +103,9 @@
 						<li class="">
 							<a href="<?=site_url('Painel_entidade/carregarCadastroVaga')?>"><i class="fa fa-plus"  aria-hidden="true"></i><span class=""> Cadastrar Nova Vaga</span></a>
 						</li>
+						<li class="">
+							<a href="<?=site_url('Painel_entidade/carregaDesistentes')?>"><i class="fa fa-list"  aria-hidden="true"></i><span class=""> Voluntários Desistentes</span></a>
+						</li>
 
 
 					</ul>

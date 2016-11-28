@@ -21,6 +21,16 @@ class Painel_entidade extends MY_ControllerLogado {
 		$this->load->view('home');
 	}
 
+	public function carregaDesistentes(){
+			$id_entidade = $this->session->userdata('id_entidade');
+			$data = array("dadosEntidade" => $this->Entidade_model->getEntidade($id_entidade)->row(),
+			"candidato" => $this->Vaga_model->getCandidato(),
+			"candidatoDesistente" => $this->Vaga_model->getCandidatoAceito());
+
+			$this->load->view('entidade/cabecalho_entidade', $data);
+			$this->load->view('entidade/desistentes');
+	}
+
 	public function carregarPerfil() {
 		$id_entidade = $this->session->userdata('id_entidade');
 		$data = array("dadosEntidade" => $this->Entidade_model->getEntidade($id_entidade)->row());

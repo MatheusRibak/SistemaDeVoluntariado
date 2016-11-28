@@ -102,6 +102,18 @@ class Vaga_model extends CI_Model {
 
   }
 
+  public function getCandidatoDesistente(){
+    $status = 'Voluntário Desistiu...';
+    $this->db
+    ->select('*')
+    ->from('vaga_candidato')
+    ->join('vaga', 'vaga.id_vaga  = vaga_candidato.id_vaga')
+    ->join('voluntario', 'voluntario.id_voluntario = vaga_candidato.id_voluntario')
+    ->where('status_vaga', $status);
+
+  return $this->db->get()->result();
+  }
+
   public function getCandidatoAceito(){
     $status = 'Aceito';
     $this->db

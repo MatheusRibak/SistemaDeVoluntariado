@@ -69,7 +69,7 @@ class Painel_voluntario extends MY_ControllerLogado {
 	}
 
 
-	public function gambiarra(){
+	public function NenhumResultado(){
 		$id_voluntario = $this->session->userdata('id_voluntario');
 		$data = array("dadosVoluntario" => $this->Voluntario_model->getVoluntario($id_voluntario)->row());
 		$this->load->view('voluntario/cabecalho_voluntario', $data);
@@ -86,7 +86,7 @@ class Painel_voluntario extends MY_ControllerLogado {
 		$retorno = $this->db->get('vaga')->num_rows();
 
 		if ($retorno == 0) {
-			redirect('Painel_voluntario/gambiarra/?aviso=2');
+			redirect('Painel_voluntario/NenhumResultado/?aviso=2');
 		}
 
 		else {
@@ -162,8 +162,9 @@ class Painel_voluntario extends MY_ControllerLogado {
 			if ($dias < 2) {
 				redirect('Painel_voluntario/index/?aviso=4');
 			} else {
+				$dados['status_vaga'] = 'Voluntário Desistiu...';
 				$data = array(
-					"excluir" => $this->Candidato_model->excluirAceita($id_academico, $id_vaga)
+					"excluir" => $this->Vaga_model->aceitarOuRecusar($id_vaga, $id_voluntario, $dados)
 				);
 				redirect('Painel_voluntario/index/?aviso=3');
 			}

@@ -22,7 +22,7 @@
       <div class="col-lg-12">
         <div class="panel panel-default">
           <div class="panel-heading">
-            Edite seu Perfil
+            Dados do voluntário
           </div>
           <div class="panel-body">
             <form action="<?=site_url('Painel_entidade/atualizar') ?>" method="post">
@@ -79,7 +79,7 @@
                     <?php endforeach; ?>
                   <?php else: {
                     echo "<td colspan='5' align = 'center'>
-                    Você não tem nenhuma vaga ativa atualmente..
+                    Este voluntário ainda não recebeu nenhum comentário... Seria interessante você dar a primeira oportunidade ao mesmo!!!
                     </td>";
                   } ?>
                 <?php	endif; ?>

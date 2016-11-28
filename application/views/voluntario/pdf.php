@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Banco de Oportunidades</title>
+        <title>EuVoluntário-Relatório</title>
         <link rel="icon" href="<?= base_url('assets/img/favicon.png') ?>">
 <!--        <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>" type="text/css">-->
         <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.min.css') ?>" type="text/css">
@@ -104,7 +104,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <p>
-                                      EuVoluntário - 2016 - Para maiores informações por favor entre em contato conosco. 
+                                      EuVoluntário - 2016 - Para maiores informações por favor entre em contato conosco.
                                     </p>
 
 

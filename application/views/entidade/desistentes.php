@@ -5,7 +5,13 @@
   <div class="row">
 
     <div class="col-lg-12">
-      <h2 class="page-header">Seja bem-vindo: <?php echo $dadosEntidade->nome ?></h2>
+      <h2 class="page-header">Voluntários Desistentes</h2>
+    </div>
+    <div class="col-lg-12">
+      <p>Observe abaixo os voluntários que você tinha aceito e desistiram de comparacer.</p>
+      <p>
+      <b>Observação:</b>Voluntários que quiserem desistir faltando 2 dias da data de atuação não vai conseguir. Logo recomendamos que informe o acontecido no feedback do mesmo. </p>
+      <p><b>Nós recomendamos que caso o voluntário desista faltando 2 dias para a vaga acontecer ele entre em contato com a ONG em questão, mas infelizmente isso não acontece sempre.</b></p>
     </div>
     <!-- /.col-lg-12 -->
   </div>
@@ -31,7 +37,7 @@
           <div class="col-xs-12 col-lg-12">
             <div class="panel panel-default">
               <div class="panel-heading">
-                Candidaturas Para as minhas Vagas
+                Voluntários que você aceitou e desistiram de sua vaga...
               </div>
               <div class="panel-body">
                 <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
@@ -39,12 +45,12 @@
                     <tr>
                       <th>Nome da Vaga</th>
                       <th>Nome do Candidato</th>
-                      <th>Opções</th>
+                      <th>Data da Vaga</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <?php if (!empty($candidato)):
-                      foreach ($candidato as $row): ?>
+                    <?php if (!empty($candidatoDesistente)):
+                      foreach ($candidatoDesistente as $row): ?>
                       <td>
                         <?php echo $row->nome;?>
                       </td>
@@ -52,18 +58,16 @@
                         <?php echo $row->nome_voluntario;?>
                       </td>
                       <td>
-                        <a  href="<?= site_url('Painel_entidade/verCandidato/' . $row->id_voluntario . '/' . $row->id_vaga) ?>"
-                          class="btn btn-info btn-sm">
-                          <i class="fa fa-eye" aria-hidden="true"></i>   Ver Candidato
-                        </a>
-                      </td>
+                      <?php
+                      echo $row->data_validade; ?></td>
+
 
                     </tr>
 
                   <?php endforeach; ?>
                 <?php else: {
                   echo "<td colspan='5' align = 'center'>
-                  Você não possui nenhuma candidatura para as suas vagas atualmente...
+                  Nenhum candidato que você aceitou desistiu da sua vaga...
                   </td>";
                 } ?>
               <?php	endif; ?>
@@ -79,64 +83,6 @@
     </div>
 
 
-
-
-
-    <div class="col-xs-12 col-lg-12">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          Meus Voluntários
-        </div>
-        <div class="panel-body">
-          <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example2">
-            <thead>
-              <tr>
-                <th>Nome da Vaga</th>
-                <th>Nome do Candidato</th>
-                <th>Telefone</th>
-                <th>Data da sua Vaga</th>
-                <th>Opções</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php if (!empty($candidatoAceito)):
-                foreach ($candidatoAceito as $row): ?>
-                <td>
-                  <?php echo $row->nome;?>
-                </td>
-                <td>
-                  <?php echo $row->nome_voluntario;?>
-                </td>
-                <td>
-                <?php echo $row->telefone; ?></td>
-                <td><?php echo $row->data_validade;?></td>
-
-                <td>
-                  <a  href="<?= site_url('Historico/cadastrarHistorico/' . $row->id_voluntario . '/' . $row->id_vaga) ?>"
-                    class="btn btn-info btn-sm">
-                    <i class="fa fa-eye" aria-hidden="true"></i>   Feedback
-                  </a>
-                </td>
-
-              </tr>
-
-            <?php endforeach; ?>
-          <?php else: {
-            echo "<td colspan='5' align = 'center'>
-            Você ainda não possui nenhum voluntário...
-            </td>";
-          } ?>
-        <?php	endif; ?>
-      </tbody>
-    </table>
-
-
-  </div>
-</div>
-
-
-<!-- /.panel -->
-</div>
 <!-- /.col-lg-12 -->
 </div>
 <!-- /.row -->

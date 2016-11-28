@@ -85,7 +85,7 @@
               <tr>
                 <th>Nome</th>
                 <th>Status</th>
-                <th>Opções</th>
+                
               </tr>
             </thead>
             <tbody>
